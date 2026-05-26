@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import capitolImg from "@/assets/capitol-hero.jpg";
+import capitolImg from "@/assets/capitol-hero.png";
 import {
   ArrowRight, Shield, Lock, CheckCircle2, MapPin, Building2, Cpu, Cloud,
   BarChart3, Smartphone, Code2, Brain, Database, Workflow, Users, Sparkles,
@@ -64,14 +64,15 @@ function Hero() {
     <section id="top" className="relative min-h-screen flex items-center pt-24 overflow-hidden">
       {/* Background image right aligned */}
       <div className="absolute inset-0 -z-10">
-        <div
-          className="absolute inset-y-0 right-0 w-full md:w-[70%] bg-cover bg-center bg-no-repeat opacity-50"
-          style={{ backgroundImage: `url(${capitolImg})`, backgroundPosition: "right center" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
-        <div className="absolute inset-0 bg-grid animate-grid opacity-40" />
+        <div className="absolute inset-0 bg-grid animate-grid opacity-30" />
         <div className="absolute top-1/3 -left-32 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[120px] animate-pulse-glow" />
+        <img
+          src={capitolImg}
+          alt="U.S. Capitol Building"
+          className="absolute right-0 bottom-0 h-[88%] md:h-[95%] w-auto object-contain object-right-bottom opacity-80 pointer-events-none select-none drop-shadow-[0_0_60px_rgba(96,165,250,0.25)]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 items-center">
@@ -150,7 +151,7 @@ function SectionHeader({ eyebrow, title, sub }: { eyebrow: string; title: string
 
 function Projects() {
   return (
-    <section id="projects" className="relative py-28 px-6">
+    <section id="projects" className="relative py-28 px-6 section-alt border-t border-border/60">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           eyebrow="SLED Portfolio"
@@ -282,7 +283,7 @@ const whys = [
 
 function WhyUs() {
   return (
-    <section id="why" className="relative py-28 px-6 border-t border-border/60">
+    <section id="why" className="relative py-28 px-6 section-alt border-t border-border/60">
       <div className="absolute inset-0 -z-10 opacity-30">
         <div className="absolute top-0 right-0 h-[400px] w-[400px] rounded-full bg-primary/15 blur-[120px]" />
       </div>
@@ -389,7 +390,7 @@ function AISection() {
 
 function PartnerSection() {
   return (
-    <section id="partner" className="relative py-28 px-6 border-t border-border/60">
+    <section id="partner" className="relative py-28 px-6 section-alt border-t border-border/60">
       <div className="max-w-7xl mx-auto">
         <div className="glass rounded-3xl p-10 lg:p-16 relative overflow-hidden">
           <div className="absolute top-0 right-0 h-full w-1/2 bg-grid opacity-20" />
