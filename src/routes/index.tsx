@@ -63,52 +63,92 @@ function Nav() {
 function Hero() {
   return (
     <section id="top" className="relative min-h-screen flex items-center pt-24 overflow-hidden">
-      {/* Background image right aligned */}
+      {/* Cinematic background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-grid animate-grid opacity-30" />
-        <div className="absolute top-1/3 -left-32 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[120px] animate-pulse-glow" />
+        {/* Base navy */}
+        <div className="absolute inset-0 bg-[#0b1628]" />
+
+        {/* Cinematic Capitol + flag + network image */}
         <img
-          src={capitolImg}
-          alt="U.S. Capitol Building"
-          className="absolute right-0 bottom-0 h-[88%] md:h-[95%] w-auto object-contain object-right-bottom opacity-80 pointer-events-none select-none drop-shadow-[0_0_60px_rgba(96,165,250,0.25)]"
+          src={heroBg}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 h-full w-full object-cover object-right opacity-90 scale-105 motion-safe:animate-pulse-glow"
+          style={{ animationDuration: "12s" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
+
+        {/* Dark navy overlay for readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0b1628] via-[#0b1628]/90 to-[#0b1628]/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0b1628]/60 via-transparent to-[#0b1628]" />
+
+        {/* Animated cyber grid overlay */}
+        <div className="absolute inset-0 bg-grid animate-grid opacity-[0.18] mix-blend-screen" />
+
+        {/* Soft blue glow behind headline */}
+        <div className="absolute top-1/4 left-[-10%] h-[600px] w-[600px] rounded-full bg-primary/25 blur-[140px] animate-pulse-glow" />
+        <div className="absolute bottom-[-10%] left-1/4 h-[400px] w-[400px] rounded-full bg-accent/10 blur-[120px]" />
+
+        {/* Subtle network particles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[
+            { t: "12%", l: "22%", d: "0s" },
+            { t: "28%", l: "48%", d: "1.2s" },
+            { t: "62%", l: "18%", d: "2.4s" },
+            { t: "44%", l: "70%", d: "0.6s" },
+            { t: "78%", l: "55%", d: "1.8s" },
+            { t: "20%", l: "82%", d: "3s" },
+            { t: "55%", l: "38%", d: "2s" },
+          ].map((p, i) => (
+            <span
+              key={i}
+              className="absolute h-1 w-1 rounded-full bg-primary/70 shadow-[0_0_12px_2px_oklch(0.76_0.13_250_/_0.6)] animate-pulse"
+              style={{ top: p.t, left: p.l, animationDelay: p.d, animationDuration: "3.5s" }}
+            />
+          ))}
+        </div>
+
+        {/* Bottom fade into next section */}
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 items-center">
+      <div className="relative max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-7 animate-fade-up">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass text-xs font-medium text-muted-foreground mb-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass text-xs font-medium text-foreground/90 mb-7">
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
             U.S. State, Local & Education Government IT
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-gradient">
-            Your Trusted U.S. State and Local Government IT Partner
+          <h1 className="text-4xl sm:text-5xl lg:text-[4.2rem] font-bold leading-[1.04] tracking-tight">
+            <span className="text-gradient">Your Trusted U.S.</span>
+            <br />
+            <span className="text-gradient">State & Local</span>{" "}
+            <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
+              Government IT Partner
+            </span>
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed">
+          <p className="mt-7 text-lg lg:text-xl text-muted-foreground max-w-2xl leading-relaxed">
             PI Solutions and Consulting PVT Limited delivers Custom Application Development,
-            Mobile Application Development, AI/ML, Data Analytics, and Cloud Migration solutions
-            for U.S. state agencies and prime contractors.
+            Mobile, AI/ML, Data Analytics, and Cloud Migration for U.S. state agencies and
+            prime contractors — engineered for compliance, scale, and citizen impact.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-9 flex flex-wrap gap-3">
             <a href="#projects" className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-accent text-accent-foreground font-semibold hover:translate-y-[-1px] hover:shadow-[0_10px_30px_-10px_oklch(0.72_0.18_150_/_0.6)] transition-all">
               View SLED Portfolio <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition" />
             </a>
-            <a href="#partner" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-primary/40 text-primary hover:bg-primary/10 transition-all">
+            <a href="#partner" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-primary/40 text-primary hover:bg-primary/10 backdrop-blur-sm transition-all">
               Partner With Us
             </a>
           </div>
 
           {/* Compliance badges */}
-          <div className="mt-8 flex flex-wrap gap-2">
+          <div className="mt-10 flex flex-wrap gap-2">
             {[
               { icon: ShieldCheck, label: "SAM.gov" },
               { icon: CheckCircle2, label: "WCAG 2.2 Aware" },
               { icon: Shield, label: "CMMC Level 1" },
               { icon: FileCheck2, label: "NIST 800-53" },
             ].map((b) => (
-              <span key={b.label} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border text-xs text-muted-foreground">
+              <span key={b.label} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border bg-background/40 backdrop-blur-sm text-xs text-muted-foreground">
                 <b.icon className="h-3.5 w-3.5 text-primary" /> {b.label}
               </span>
             ))}
