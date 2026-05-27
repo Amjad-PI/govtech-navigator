@@ -67,36 +67,36 @@ function Hero() {
         {/* Base navy */}
         <div className="absolute inset-0 bg-[#0b1628]" />
 
-        {/* Cinematic Capitol + flag + network image */}
-        <img
-          src={heroBg}
-          alt=""
-          aria-hidden
-          className="absolute inset-0 h-full w-full object-cover object-right opacity-90 scale-105 motion-safe:animate-pulse-glow"
-          style={{ animationDuration: "12s" }}
-        />
-
-        {/* Dark navy overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0b1628] via-[#0b1628]/90 to-[#0b1628]/30" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0b1628]/60 via-transparent to-[#0b1628]" />
+        {/* Cinematic Capitol + flag + network image — right-anchored, clearly visible */}
+        <div className="absolute inset-y-0 right-0 w-full lg:w-[70%]">
+          <img
+            src={heroBg}
+            alt=""
+            aria-hidden
+            className="h-full w-full object-cover object-right"
+          />
+          {/* Left-to-right fade so image blends into navy on the left */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0b1628] via-[#0b1628]/70 to-transparent" />
+          {/* Soft top/bottom fade */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0b1628]/40 via-transparent to-[#0b1628]" />
+        </div>
 
         {/* Animated cyber grid overlay */}
-        <div className="absolute inset-0 bg-grid animate-grid opacity-[0.18] mix-blend-screen" />
+        <div className="absolute inset-0 bg-grid animate-grid opacity-[0.12] mix-blend-screen" />
 
         {/* Soft blue glow behind headline */}
-        <div className="absolute top-1/4 left-[-10%] h-[600px] w-[600px] rounded-full bg-primary/25 blur-[140px] animate-pulse-glow" />
+        <div className="absolute top-1/3 left-[-8%] h-[520px] w-[520px] rounded-full bg-primary/20 blur-[140px] animate-pulse-glow" />
         <div className="absolute bottom-[-10%] left-1/4 h-[400px] w-[400px] rounded-full bg-accent/10 blur-[120px]" />
 
         {/* Subtle network particles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {[
-            { t: "12%", l: "22%", d: "0s" },
-            { t: "28%", l: "48%", d: "1.2s" },
-            { t: "62%", l: "18%", d: "2.4s" },
-            { t: "44%", l: "70%", d: "0.6s" },
-            { t: "78%", l: "55%", d: "1.8s" },
-            { t: "20%", l: "82%", d: "3s" },
-            { t: "55%", l: "38%", d: "2s" },
+            { t: "18%", l: "55%", d: "0s" },
+            { t: "32%", l: "72%", d: "1.2s" },
+            { t: "58%", l: "62%", d: "2.4s" },
+            { t: "44%", l: "84%", d: "0.6s" },
+            { t: "72%", l: "78%", d: "1.8s" },
+            { t: "24%", l: "88%", d: "3s" },
           ].map((p, i) => (
             <span
               key={i}
@@ -107,8 +107,9 @@ function Hero() {
         </div>
 
         {/* Bottom fade into next section */}
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
       </div>
+
 
       <div className="relative max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-7 animate-fade-up">
