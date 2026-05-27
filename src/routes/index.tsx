@@ -635,6 +635,7 @@ function HomePage() {
       <main>
         <Hero />
         <Projects />
+        <CTABanner />
         <Services />
         <WhyUs />
         <AISection />
