@@ -263,6 +263,94 @@ function Projects() {
   );
 }
 
+function CTABanner() {
+  return (
+    <section className="relative py-20 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="relative overflow-hidden rounded-[24px] bg-gradient-to-br from-[#f8fafc] via-[#eff6ff] to-[#e0f2fe] shadow-[0_24px_80px_-24px_rgba(15,23,42,0.25)] border border-[#dbeafe]/60">
+          {/* Animated wave patterns */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <svg className="absolute -top-24 -right-24 w-[500px] h-[500px] text-[#bfdbfe]/40 animate-pulse-glow" viewBox="0 0 500 500" fill="none">
+              <circle cx="250" cy="250" r="200" stroke="currentColor" strokeWidth="1" />
+              <circle cx="250" cy="250" r="160" stroke="currentColor" strokeWidth="0.5" />
+              <circle cx="250" cy="250" r="120" stroke="currentColor" strokeWidth="0.5" />
+              <circle cx="250" cy="250" r="80" stroke="currentColor" strokeWidth="0.5" />
+            </svg>
+            <svg className="absolute -bottom-16 -left-16 w-[400px] h-[400px] text-[#dbeafe]/50 animate-pulse-glow" style={{ animationDelay: '2s' }} viewBox="0 0 400 400" fill="none">
+              <circle cx="200" cy="200" r="150" stroke="currentColor" strokeWidth="1" />
+              <circle cx="200" cy="200" r="110" stroke="currentColor" strokeWidth="0.5" />
+              <circle cx="200" cy="200" r="70" stroke="currentColor" strokeWidth="0.5" />
+            </svg>
+          </div>
+
+          {/* AI circuitry lines */}
+          <div className="absolute inset-0 pointer-events-none opacity-[0.15]">
+            <div className="absolute top-12 left-1/4 w-px h-32 bg-gradient-to-b from-transparent via-[#3b82f6] to-transparent" />
+            <div className="absolute top-24 left-[28%] w-16 h-px bg-gradient-to-r from-[#3b82f6] to-transparent" />
+            <div className="absolute bottom-16 right-1/3 w-px h-24 bg-gradient-to-b from-transparent via-[#60a5fa] to-transparent" />
+            <div className="absolute bottom-20 right-[32%] w-12 h-px bg-gradient-to-l from-[#60a5fa] to-transparent" />
+            <div className="absolute top-1/2 left-12 w-20 h-px bg-gradient-to-r from-[#93c5fd] to-transparent" />
+            <div className="absolute top-[45%] left-20 w-px h-10 bg-gradient-to-b from-[#93c5fd] to-transparent" />
+          </div>
+
+          {/* Floating background accents */}
+          <div className="absolute top-8 right-16 h-3 w-3 rounded-full bg-[#3b82f6]/30 animate-pulse" />
+          <div className="absolute top-20 right-32 h-2 w-2 rounded-full bg-[#60a5fa]/40 animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute bottom-12 left-20 h-2.5 w-2.5 rounded-full bg-[#3b82f6]/25 animate-pulse" style={{ animationDelay: '1.5s' }} />
+          <div className="absolute bottom-24 left-40 h-2 w-2 rounded-full bg-[#93c5fd]/35 animate-pulse" style={{ animationDelay: '0.5s' }} />
+
+          <div className="relative grid lg:grid-cols-2 gap-10 items-center p-10 lg:p-16">
+            {/* Left: AI/Government illustration */}
+            <div className="flex items-center justify-center lg:justify-start animate-fade-up">
+              <div className="relative">
+                <div className="h-48 w-48 lg:h-56 lg:w-56 rounded-3xl bg-gradient-to-br from-[#1e3a5f] to-[#0f172a] flex items-center justify-center shadow-[0_20px_60px_-15px_rgba(30,58,95,0.5)]">
+                  <div className="relative">
+                    <Brain className="h-16 w-16 lg:h-20 lg:w-20 text-[#93c5fd]" strokeWidth={1.2} />
+                    <div className="absolute -top-2 -right-2 h-4 w-4 rounded-full bg-[#3b82f6] animate-pulse shadow-[0_0_12px_4px_rgba(59,130,246,0.4)]" />
+                    <div className="absolute -bottom-1 -left-2 h-3 w-3 rounded-full bg-[#60a5fa] animate-pulse shadow-[0_0_8px_3px_rgba(96,165,250,0.4)]" style={{ animationDelay: '0.8s' }} />
+                  </div>
+                </div>
+                {/* Orbiting elements */}
+                <div className="absolute -top-4 -right-4 h-12 w-12 rounded-xl bg-white shadow-lg border border-[#e2e8f0] flex items-center justify-center">
+                  <Shield className="h-5 w-5 text-[#1e3a5f]" />
+                </div>
+                <div className="absolute -bottom-3 -left-5 h-11 w-11 rounded-xl bg-white shadow-lg border border-[#e2e8f0] flex items-center justify-center">
+                  <Building2 className="h-5 w-5 text-[#1e3a5f]" />
+                </div>
+                <div className="absolute top-1/2 -right-8 h-10 w-10 rounded-lg bg-white shadow-lg border border-[#e2e8f0] flex items-center justify-center">
+                  <Cpu className="h-4 w-4 text-[#3b82f6]" />
+                </div>
+              </div>
+            </div>
+
+            {/* Right: text and CTA */}
+            <div className="text-center lg:text-left animate-fade-up" style={{ animationDelay: '0.15s' }}>
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold leading-tight tracking-tight text-[#0f172a]">
+                Custom AI, built for you.
+              </h2>
+              <p className="mt-5 text-[#475569] text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
+                At PIScale Global, we can build custom government solutions to meet the needs of your specific mission or overcome new legislative requirements.
+              </p>
+              <div className="mt-8">
+                <a
+                  href="mailto:partnerships@pisolutions.com"
+                  className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-[#0f172a] text-white font-semibold text-base shadow-[0_8px_30px_-8px_rgba(15,23,42,0.5)] hover:shadow-[0_12px_40px_-8px_rgba(15,23,42,0.6)] hover:bg-[#1e293b] hover:translate-y-[-2px] transition-all duration-300"
+                >
+                  <span>Let's Talk</span>
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                </a>
+              </div>
+              <p className="mt-4 text-sm text-[#94a3b8]">
+                Free consultation for SLED agencies and prime contractors.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const services = [
   { icon: Workflow, title: "IT Strategic Planning", desc: "Multi-year roadmaps aligned to agency mission and budget cycles." },
   { icon: Layers, title: "Government Digital Roadmaps", desc: "Phased modernization plans across legacy systems and citizen channels." },
