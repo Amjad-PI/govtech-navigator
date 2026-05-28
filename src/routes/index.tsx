@@ -61,63 +61,25 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative min-h-screen flex items-center pt-24 overflow-hidden">
-      {/* Cinematic background */}
+    <section id="top" className="relative min-h-screen flex items-center pt-28 pb-32 overflow-hidden">
+      {/* Background — solid navy, no full-bleed image */}
       <div className="absolute inset-0 -z-10">
-        {/* Base navy */}
         <div className="absolute inset-0 bg-[#0b1628]" />
-
-        {/* Cinematic Capitol + flag + network image — right-anchored, clearly visible */}
-        <div className="absolute inset-y-0 right-0 w-full lg:w-[70%]">
-          <img
-            src={heroBg}
-            alt=""
-            aria-hidden
-            className="h-full w-full object-cover object-right"
-          />
-          {/* Left-to-right fade so image blends into navy on the left */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0b1628] via-[#0b1628]/70 to-transparent" />
-          {/* Soft top/bottom fade */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0b1628]/40 via-transparent to-[#0b1628]" />
-        </div>
-
-        {/* Animated cyber grid overlay */}
-        <div className="absolute inset-0 bg-grid animate-grid opacity-[0.12] mix-blend-screen" />
-
-        {/* Soft blue glow behind headline */}
-        <div className="absolute top-1/3 left-[-8%] h-[520px] w-[520px] rounded-full bg-primary/20 blur-[140px] animate-pulse-glow" />
-        <div className="absolute bottom-[-10%] left-1/4 h-[400px] w-[400px] rounded-full bg-accent/10 blur-[120px]" />
-
-        {/* Subtle network particles */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[
-            { t: "18%", l: "55%", d: "0s" },
-            { t: "32%", l: "72%", d: "1.2s" },
-            { t: "58%", l: "62%", d: "2.4s" },
-            { t: "44%", l: "84%", d: "0.6s" },
-            { t: "72%", l: "78%", d: "1.8s" },
-            { t: "24%", l: "88%", d: "3s" },
-          ].map((p, i) => (
-            <span
-              key={i}
-              className="absolute h-1 w-1 rounded-full bg-primary/70 shadow-[0_0_12px_2px_oklch(0.76_0.13_250_/_0.6)] animate-pulse"
-              style={{ top: p.t, left: p.l, animationDelay: p.d, animationDuration: "3.5s" }}
-            />
-          ))}
-        </div>
-
-        {/* Bottom fade into next section */}
+        <div className="absolute inset-0 bg-grid animate-grid opacity-[0.08]" />
+        <div className="absolute top-1/3 left-[-10%] h-[560px] w-[560px] rounded-full bg-primary/20 blur-[160px] animate-pulse-glow" />
+        <div className="absolute bottom-[-15%] right-[-8%] h-[480px] w-[480px] rounded-full bg-primary/15 blur-[140px]" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
       </div>
 
-
-      <div className="relative max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-7 animate-fade-up">
+      <div className="relative max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+        {/* LEFT — Content */}
+        <div className="lg:col-span-6 animate-fade-up">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass text-xs font-medium text-foreground/90 mb-7">
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
             U.S. State, Local & Education Government IT
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-[4.2rem] font-bold leading-[1.04] tracking-tight">
+          <h1 className="relative text-4xl sm:text-5xl lg:text-[3.9rem] font-bold leading-[1.05] tracking-tight">
+            <span className="absolute -inset-4 -z-10 bg-primary/10 blur-3xl rounded-full" aria-hidden />
             <span className="text-gradient">Your Trusted U.S.</span>
             <br />
             <span className="text-gradient">State & Local</span>{" "}
@@ -127,8 +89,8 @@ function Hero() {
           </h1>
           <p className="mt-7 text-lg lg:text-xl text-muted-foreground max-w-2xl leading-relaxed">
             PI Solutions and Consulting PVT Limited delivers Custom Application Development,
-            Mobile, AI/ML, Data Analytics, and Cloud Migration for U.S. state agencies and
-            prime contractors — engineered for compliance, scale, and citizen impact.
+            Mobile Application Development, AI/ML, Data Analytics, and Cloud Migration solutions
+            for U.S. state agencies and prime contractors.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-3">
@@ -140,7 +102,6 @@ function Hero() {
             </a>
           </div>
 
-          {/* Compliance badges */}
           <div className="mt-10 flex flex-wrap gap-2">
             {[
               { icon: ShieldCheck, label: "SAM.gov" },
@@ -155,7 +116,54 @@ function Hero() {
           </div>
         </div>
 
-        <div className="lg:col-span-5 hidden lg:block" aria-hidden />
+        {/* RIGHT — Cinematic government-tech visual */}
+        <div className="lg:col-span-6 relative animate-fade-up" style={{ animationDelay: "0.15s" }}>
+          <div className="relative group">
+            <div className="absolute -inset-6 bg-gradient-to-br from-primary/40 via-primary/10 to-accent/20 blur-2xl rounded-[32px] opacity-70 group-hover:opacity-90 transition-opacity" aria-hidden />
+
+            <div className="relative rounded-[24px] overflow-hidden border border-white/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)]">
+              <img
+                src={heroBg}
+                alt="U.S. Capitol with AI and data network overlay representing government digital transformation"
+                className="h-[460px] lg:h-[560px] w-full object-cover object-center transform-gpu transition-transform duration-[6000ms] ease-out group-hover:scale-[1.04]"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#0b1628]/70 via-[#0b1628]/20 to-transparent" />
+              <div className="absolute inset-0 bg-grid animate-grid opacity-[0.18] mix-blend-screen" />
+              <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/[0.06] to-transparent" />
+
+              <div className="absolute inset-0 pointer-events-none">
+                {[
+                  { t: "14%", l: "22%", d: "0s" },
+                  { t: "28%", l: "68%", d: "1.1s" },
+                  { t: "52%", l: "38%", d: "2.2s" },
+                  { t: "40%", l: "82%", d: "0.6s" },
+                  { t: "70%", l: "58%", d: "1.8s" },
+                  { t: "82%", l: "30%", d: "2.6s" },
+                ].map((p, i) => (
+                  <span
+                    key={i}
+                    className="absolute h-1.5 w-1.5 rounded-full bg-primary/80 shadow-[0_0_14px_3px_oklch(0.76_0.13_250_/_0.7)] animate-pulse"
+                    style={{ top: p.t, left: p.l, animationDelay: p.d, animationDuration: "3.5s" }}
+                  />
+                ))}
+              </div>
+
+              <div className="absolute bottom-5 left-5 right-5 glass rounded-xl px-4 py-3 flex items-center gap-3">
+                <div className="h-9 w-9 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center">
+                  <Cpu className="h-4 w-4 text-primary" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs font-semibold text-foreground">AI-Ready Government Infrastructure</div>
+                  <div className="text-[11px] text-muted-foreground truncate">Secure · Compliant · Scalable</div>
+                </div>
+                <span className="hidden sm:inline-flex items-center gap-1 text-[10px] text-accent font-medium">
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" /> LIVE
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Trust bar */}
