@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroBg from "@/assets/hero-bg.jpg";
-import piscaleLogo from "@/assets/piscale-logo.png.asset.json";
 import {
   ArrowRight, Shield, Lock, CheckCircle2, MapPin, Building2, Cpu, Cloud,
   BarChart3, Smartphone, Code2, Brain, Database, Workflow, Users, Sparkles,
@@ -36,17 +35,14 @@ function Nav() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 border-b border-border/60 backdrop-blur-xl bg-background/70">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2.5 group" aria-label="PiScale — Home">
-          <img
-            src={piscaleLogo.url}
-            alt="PiScale"
-            width={160}
-            height={42}
-            decoding="async"
-            fetchPriority="high"
-            className="h-7 md:h-8 w-auto object-contain invert brightness-0 invert-[1] transition-opacity duration-200 group-hover:opacity-80 select-none"
-            draggable={false}
-          />
+        <a href="#top" className="flex items-center gap-2.5">
+          <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+            <span className="font-display font-bold text-primary-foreground text-sm">PI</span>
+          </div>
+          <div className="leading-tight">
+            <div className="font-display font-semibold text-sm">PI Solutions</div>
+            <div className="text-[10px] text-muted-foreground tracking-wider uppercase">& Consulting</div>
+          </div>
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
           <a href="#services" className="hover:text-foreground transition">Services</a>
