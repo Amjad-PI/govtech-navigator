@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroBg from "@/assets/hero-bg.jpg";
+import piscaleLogo from "@/assets/piscale-logo.png.asset.json";
 import {
   ArrowRight, Shield, Lock, CheckCircle2, MapPin, Building2, Cpu, Cloud,
   BarChart3, Smartphone, Code2, Brain, Database, Workflow, Users, Sparkles,
