@@ -591,6 +591,32 @@ function Footer() {
               U.S. State, Local & Education government IT consulting subcontractor.
               Trusted by prime contractors and state agencies for digital transformation.
             </p>
+
+            {/* Contact Information */}
+            <div className="mt-6 space-y-3">
+              <div className="flex items-start gap-3">
+                <Phone className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                <div>
+                  <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Phone</div>
+                  <div className="text-sm font-medium">+1 (703) 666-7959</div>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Mail className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                <div>
+                  <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Email</div>
+                  <div className="text-sm font-medium">info@piscalex.us</div>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Clock className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                <div>
+                  <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Business Hours</div>
+                  <div className="text-sm font-medium">Monday – Friday<br />9:00 AM – 6:00 PM ET</div>
+                </div>
+              </div>
+            </div>
+
             <div className="mt-6 flex flex-wrap gap-2">
               {["SAM.gov", "WCAG 2.2", "CMMC L1", "NIST 800-53"].map(b => (
                 <span key={b} className="text-[10px] px-2.5 py-1 rounded-md border border-border text-muted-foreground">{b}</span>
