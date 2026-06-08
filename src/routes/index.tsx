@@ -574,10 +574,31 @@ function PartnerSection() {
 }
 
 function Footer() {
+  const contactItems = [
+    {
+      icon: Phone,
+      label: "Phone",
+      value: "+1 (703) 666-7959",
+      href: "tel:+17036667959",
+    },
+    {
+      icon: Mail,
+      label: "Email",
+      value: "info@piscalex.us",
+      href: "mailto:info@piscalex.us",
+    },
+    {
+      icon: Clock,
+      label: "Business Hours",
+      value: "Monday – Friday\n9:00 AM – 6:00 PM ET",
+    },
+  ];
+
   return (
     <footer className="border-t border-border/60 px-6 pt-20 pb-10 bg-gradient-to-b from-transparent to-card/30">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-12 gap-12">
+          {/* Branding */}
           <div className="lg:col-span-5">
             <div className="flex items-center gap-2.5 mb-4">
               <div className="h-9 w-9 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
@@ -599,6 +620,7 @@ function Footer() {
             </div>
           </div>
 
+          {/* Codes */}
           <div className="lg:col-span-3">
             <div className="text-xs font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-4">Codes</div>
             <ul className="space-y-2 text-sm">
@@ -610,21 +632,55 @@ function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-4">
-            <div className="text-xs font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-4">Contact</div>
-            <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
-              <input type="text" placeholder="Name" className="w-full px-4 py-2.5 rounded-lg bg-card/60 border border-border text-sm focus:outline-none focus:border-primary/50" />
-              <input type="email" placeholder="Agency / Organization Email" className="w-full px-4 py-2.5 rounded-lg bg-card/60 border border-border text-sm focus:outline-none focus:border-primary/50" />
-              <textarea placeholder="How can we partner?" rows={3} className="w-full px-4 py-2.5 rounded-lg bg-card/60 border border-border text-sm focus:outline-none focus:border-primary/50 resize-none" />
-              <div className="flex gap-2">
-                <button type="submit" className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-accent text-accent-foreground font-semibold text-sm hover:opacity-90">
-                  <Mail className="h-4 w-4" /> Send
-                </button>
-                <a href="https://www.linkedin.com/company/pisolglobal" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center px-4 py-2.5 rounded-lg border border-border hover:border-primary/40 transition">
-                  <Linkedin className="h-4 w-4 text-primary" />
-                </a>
+          {/* Contact Info + Form */}
+          <div className="lg:col-span-4 space-y-8">
+            {/* Contact Information Block */}
+            <div>
+              <div className="text-xs font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-4">Contact Information</div>
+              <div className="space-y-3">
+                {contactItems.map((item) => (
+                  <div
+                    key={item.label}
+                    className="group flex items-start gap-3 p-3 rounded-xl border border-border/60 bg-card/40 hover:bg-card/60 hover:border-primary/30 transition"
+                  >
+                    <div className="mt-0.5 h-8 w-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
+                      <item.icon className="h-4 w-4 text-primary" />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[10px] uppercase tracking-wider text-muted-foreground mb-0.5">{item.label}</div>
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          className="text-sm font-medium text-foreground hover:text-primary transition whitespace-pre-line"
+                        >
+                          {item.value}
+                        </a>
+                      ) : (
+                        <div className="text-sm font-medium text-foreground whitespace-pre-line">{item.value}</div>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
-            </form>
+            </div>
+
+            {/* Quick Message Form */}
+            <div>
+              <div className="text-xs font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-4">Send a Message</div>
+              <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
+                <input type="text" placeholder="Name" className="w-full px-4 py-2.5 rounded-lg bg-card/60 border border-border text-sm focus:outline-none focus:border-primary/50" />
+                <input type="email" placeholder="Agency / Organization Email" className="w-full px-4 py-2.5 rounded-lg bg-card/60 border border-border text-sm focus:outline-none focus:border-primary/50" />
+                <textarea placeholder="How can we partner?" rows={3} className="w-full px-4 py-2.5 rounded-lg bg-card/60 border border-border text-sm focus:outline-none focus:border-primary/50 resize-none" />
+                <div className="flex gap-2">
+                  <button type="submit" className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-accent text-accent-foreground font-semibold text-sm hover:opacity-90">
+                    <Mail className="h-4 w-4" /> Send
+                  </button>
+                  <a href="https://www.linkedin.com/company/pisolglobal" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center px-4 py-2.5 rounded-lg border border-border hover:border-primary/40 transition">
+                    <Linkedin className="h-4 w-4 text-primary" />
+                  </a>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
 
