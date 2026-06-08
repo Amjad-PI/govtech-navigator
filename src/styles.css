@@ -40,7 +40,7 @@
 
 :root {
   --radius: 1rem;
-  --navy: oklch(0.20 0.04 250);
+  --navy: oklch(0.2 0.04 250);
   --navy-2: oklch(0.26 0.045 250);
   --accent-blue: oklch(0.76 0.13 250);
   --cta-green: oklch(0.72 0.18 150);
@@ -66,25 +66,36 @@
   --ring: oklch(0.76 0.13 250);
 }
 
-.dark { color-scheme: dark; }
+.dark {
+  color-scheme: dark;
+}
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
 }
 
 @layer utilities {
   .bg-grid {
     background-image:
-      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
     background-size: 56px 56px;
   }
   .section-alt {
@@ -94,8 +105,8 @@
       radial-gradient(at 0% 100%, oklch(0.72 0.18 150 / 0.05) 0px, transparent 50%);
   }
   .glass {
-    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-    border: 1px solid rgba(255,255,255,0.08);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
   }
   .glow-blue {
@@ -108,18 +119,39 @@
     color: transparent;
   }
   @keyframes fade-up {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  .animate-fade-up { animation: fade-up 0.7s ease-out both; }
+  .animate-fade-up {
+    animation: fade-up 0.7s ease-out both;
+  }
   @keyframes grid-pan {
-    from { background-position: 0 0; }
-    to { background-position: 56px 56px; }
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 56px 56px;
+    }
   }
-  .animate-grid { animation: grid-pan 20s linear infinite; }
+  .animate-grid {
+    animation: grid-pan 20s linear infinite;
+  }
   @keyframes pulse-glow {
-    0%,100% { opacity: 0.5; }
-    50% { opacity: 0.9; }
+    0%,
+    100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 0.9;
+    }
   }
-  .animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
+  .animate-pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
 }

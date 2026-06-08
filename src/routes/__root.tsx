@@ -73,22 +73,51 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "PI Solutions & Consulting — U.S. SLED Government IT Partner" },
-      { name: "description", content: "Custom Application Development, AI/ML, Data Analytics, and Cloud Migration for U.S. State, Local & Education government agencies and prime contractors." },
+      {
+        name: "description",
+        content:
+          "Custom Application Development, AI/ML, Data Analytics, and Cloud Migration for U.S. State, Local & Education government agencies and prime contractors.",
+      },
       { name: "author", content: "PI Solutions and Consulting PVT Limited" },
-      { property: "og:title", content: "PI Solutions & Consulting — U.S. SLED Government IT Partner" },
-      { property: "og:description", content: "Custom Application Development, AI/ML, Data Analytics, and Cloud Migration for U.S. State, Local & Education government agencies and prime contractors." },
+      {
+        property: "og:title",
+        content: "PI Solutions & Consulting — U.S. SLED Government IT Partner",
+      },
+      {
+        property: "og:description",
+        content:
+          "Custom Application Development, AI/ML, Data Analytics, and Cloud Migration for U.S. State, Local & Education government agencies and prime contractors.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "PI Solutions & Consulting — U.S. SLED Government IT Partner" },
-      { name: "twitter:description", content: "Custom Application Development, AI/ML, Data Analytics, and Cloud Migration for U.S. State, Local & Education government agencies and prime contractors." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/91053fb0-90c4-4fc3-8827-60ce8af97a3c/id-preview-06197c1a--40fa192e-1673-4b35-b443-64c437c06d11.lovable.app-1780573888164.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/91053fb0-90c4-4fc3-8827-60ce8af97a3c/id-preview-06197c1a--40fa192e-1673-4b35-b443-64c437c06d11.lovable.app-1780573888164.png" },
+      {
+        name: "twitter:title",
+        content: "PI Solutions & Consulting — U.S. SLED Government IT Partner",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Custom Application Development, AI/ML, Data Analytics, and Cloud Migration for U.S. State, Local & Education government agencies and prime contractors.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/91053fb0-90c4-4fc3-8827-60ce8af97a3c/id-preview-06197c1a--40fa192e-1673-4b35-b443-64c437c06d11.lovable.app-1780573888164.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/91053fb0-90c4-4fc3-8827-60ce8af97a3c/id-preview-06197c1a--40fa192e-1673-4b35-b443-64c437c06d11.lovable.app-1780573888164.png",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
