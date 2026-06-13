@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as CapabilityRouteImport } from './routes/capability'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiDownloadFilenameRouteImport } from './routes/api/download.$filename'
 
 const CapabilityRoute = CapabilityRouteImport.update({
   id: '/capability',
@@ -22,31 +23,40 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiDownloadFilenameRoute = ApiDownloadFilenameRouteImport.update({
+  id: '/api/download/$filename',
+  path: '/api/download/$filename',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/capability': typeof CapabilityRoute
+  '/api/download/$filename': typeof ApiDownloadFilenameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/capability': typeof CapabilityRoute
+  '/api/download/$filename': typeof ApiDownloadFilenameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/capability': typeof CapabilityRoute
+  '/api/download/$filename': typeof ApiDownloadFilenameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/capability'
+  fullPaths: '/' | '/capability' | '/api/download/$filename'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/capability'
-  id: '__root__' | '/' | '/capability'
+  to: '/' | '/capability' | '/api/download/$filename'
+  id: '__root__' | '/' | '/capability' | '/api/download/$filename'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CapabilityRoute: typeof CapabilityRoute
+  ApiDownloadFilenameRoute: typeof ApiDownloadFilenameRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/download/$filename': {
+      id: '/api/download/$filename'
+      path: '/api/download/$filename'
+      fullPath: '/api/download/$filename'
+      preLoaderRoute: typeof ApiDownloadFilenameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CapabilityRoute: CapabilityRoute,
+  ApiDownloadFilenameRoute: ApiDownloadFilenameRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

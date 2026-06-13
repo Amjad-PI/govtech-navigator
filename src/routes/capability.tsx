@@ -544,7 +544,7 @@ function DownloadSection() {
               </p>
             </div>
             <div className="flex flex-col gap-3">
-              <a href="#" className="group inline-flex items-center justify-center gap-3 px-7 py-4 rounded-2xl bg-accent text-accent-foreground font-medium shadow-xl shadow-accent/20 hover:opacity-90 transition">
+              <a href="/api/download/PIScaleX — Capability Statement_v1.pdf" className="group inline-flex items-center justify-center gap-3 px-7 py-4 rounded-2xl bg-accent text-accent-foreground font-medium shadow-xl shadow-accent/20 hover:opacity-90 transition">
                 <FileText className="h-5 w-5" />
                 Download Capability Statement (PDF)
                 <Download className="h-4 w-4 group-hover:translate-y-0.5 transition-transform" />

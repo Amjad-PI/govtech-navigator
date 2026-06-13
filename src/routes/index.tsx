@@ -456,7 +456,7 @@ function CTABanner() {
               </p>
               <div className="mt-8">
                 <a
-                  href="mailto:partnerships@pisolutions.com"
+                  href="#partner"
                   className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-[#0f172a] text-white font-semibold text-base shadow-[0_8px_30px_-8px_rgba(15,23,42,0.5)] hover:shadow-[0_12px_40px_-8px_rgba(15,23,42,0.6)] hover:bg-[#1e293b] hover:translate-y-[-2px] transition-all duration-300"
                 >
                   <span>Let's Talk</span>

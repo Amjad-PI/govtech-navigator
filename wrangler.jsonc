@@ -1,14 +1,22 @@
 // wrangler.jsonc
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "piscalexussled",
-  "compatibility_date": "2026-06-09",
-  "compatibility_flags": ["nodejs_compat"],
-  "main": "@tanstack/react-start/server-entry",
-  "assets": {
-    "directory": "./dist/client"
-  },
-  "observability": {
-    "enabled": true
-  }
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "piscalexussled",
+	"compatibility_date": "2026-06-09",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"main": "@tanstack/react-start/server-entry",
+	"assets": {
+		"directory": "./dist/client"
+	},
+	"observability": {
+		"enabled": true
+	},
+	"r2_buckets": [
+		{
+			"bucket_name": "sled-documents",
+			"binding": "sled_documents"
+		}
+	]
 }
