@@ -33,7 +33,7 @@ export const Route = createFileRoute("/")({
   component: HomePage,
   head: () => ({
     meta: [
-      { title: "PI Solutions & Consulting — U.S. SLED Government IT Partner" },
+      { title: "PIScaleX — U.S. SLED Government IT Partner" },
       {
         name: "description",
         content:
@@ -41,7 +41,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:title",
-        content: "PI Solutions & Consulting — U.S. SLED Government IT Partner",
+        content: "PIScaleX — U.S. SLED Government IT Partner",
       },
       {
         property: "og:description",
@@ -57,7 +57,7 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "PI Solutions and Consulting PVT Limited",
+          name: "PIScaleX",
           url: "/",
           description: "U.S. State, Local & Education Government IT consulting subcontractor.",
           areaServed: "United States",
@@ -138,7 +138,7 @@ function Hero() {
             </span>
           </h1>
           <p className="mt-7 text-lg lg:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-            PI Solutions and Consulting PVT Limited delivers Custom Application Development, Mobile
+            PIScaleX delivers Custom Application Development, Mobile
             Application Development, AI/ML, Data Analytics, and Cloud Migration solutions for U.S.
             state agencies and prime contractors.
           </p>
@@ -448,7 +448,7 @@ function CTABanner() {
                 Custom AI, built for you.
               </h2>
               <p className="mt-5 text-[#475569] text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
-                At PIScale Global, we can build custom government solutions to meet the needs of
+                At PIScaleX, we can build custom government solutions to meet the needs of
                 your specific mission or overcome new legislative requirements.
               </p>
               <div className="mt-8">
@@ -578,8 +578,8 @@ function WhyUs() {
       <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-start">
         <div className="lg:col-span-5">
           <SectionHeader
-            eyebrow="Why PI Solutions"
-            title="Why Government Agencies Choose PI Solutions"
+            eyebrow="Why PIScaleX"
+            title="Why Government Agencies Choose PIScaleX"
             sub="A trusted subcontractor model combining government delivery rigor with modern engineering."
           />
           <div className="mt-8 flex flex-wrap gap-2">
