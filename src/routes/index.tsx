@@ -72,7 +72,7 @@ function Nav() {
     <header className="fixed top-0 inset-x-0 z-50 border-b border-border/60 backdrop-blur-xl bg-background/70">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2.5">
-          <img src={logoIcon} alt="PI Scale Global" className="h-10 w-50" />
+          <img src={logoIcon} alt="PIScaleX" className="h-10 w-50" />
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
           <a href="#projects" className="hover:text-foreground transition">
@@ -86,6 +86,9 @@ function Nav() {
           </a>
           <a href="#ai" className="hover:text-foreground transition">
             AI & Data
+          </a>
+          <a href="/capability" className="hover:text-foreground transition">
+            Capability
           </a>
           <a href="#partner" className="hover:text-foreground transition">
             Partner
@@ -709,7 +712,7 @@ function PartnerSection() {
                 onshore strategy with scalable offshore delivery.
               </p>
               <a
-                href="mailto:partnerships@pisolutions.com"
+                href="https://calendly.com/amjad-pi-pisolglobal/ussled"
                 className="mt-8 inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-accent text-accent-foreground font-semibold hover:opacity-90 transition"
               >
                 Become a Partner <ArrowRight className="h-4 w-4" />
@@ -754,7 +757,7 @@ function Footer() {
               <div className="leading-tight">
                 <div className="font-display font-semibold">PIScaleX</div>
                 <div className="text-[10px] text-muted-foreground tracking-wider uppercase">
-                  US SLED Part
+                  US SLED Partner
                 </div>
               </div>
             </div>
