@@ -9,9 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as RfpServicesRouteImport } from './routes/rfp-services'
 import { Route as CapabilityRouteImport } from './routes/capability'
 import { Route as IndexRouteImport } from './routes/index'
 
+const RfpServicesRoute = RfpServicesRouteImport.update({
+  id: '/rfp-services',
+  path: '/rfp-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CapabilityRoute = CapabilityRouteImport.update({
   id: '/capability',
   path: '/capability',
@@ -26,31 +32,42 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/capability': typeof CapabilityRoute
+  '/rfp-services': typeof RfpServicesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/capability': typeof CapabilityRoute
+  '/rfp-services': typeof RfpServicesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/capability': typeof CapabilityRoute
+  '/rfp-services': typeof RfpServicesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/capability'
+  fullPaths: '/' | '/capability' | '/rfp-services'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/capability'
-  id: '__root__' | '/' | '/capability'
+  to: '/' | '/capability' | '/rfp-services'
+  id: '__root__' | '/' | '/capability' | '/rfp-services'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CapabilityRoute: typeof CapabilityRoute
+  RfpServicesRoute: typeof RfpServicesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/rfp-services': {
+      id: '/rfp-services'
+      path: '/rfp-services'
+      fullPath: '/rfp-services'
+      preLoaderRoute: typeof RfpServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/capability': {
       id: '/capability'
       path: '/capability'
@@ -71,17 +88,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CapabilityRoute: CapabilityRoute,
+  RfpServicesRoute: RfpServicesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
