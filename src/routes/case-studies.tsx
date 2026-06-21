@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight, Building2, GraduationCap, Cloud, Database,
   Phone, CheckCircle2, Calendar, Handshake, Mail, Landmark,
-  BarChart3, Users,
 } from "lucide-react";
 
 export const Route = createFileRoute("/case-studies")({
