@@ -41,6 +41,7 @@ function Nav() {
           <Link to="/" hash="ai" className="hover:text-foreground transition">AI & Data</Link>
           <Link to="/capability" className="hover:text-foreground transition">Capability</Link>
           <Link to="/rfp-services" className="text-foreground font-medium">RFP Services</Link>
+          <Link to="/case-studies" className="hover:text-foreground transition">Case Studies</Link>
           <Link to="/" hash="partner" className="hover:text-foreground transition">Partner</Link>
         </nav>
         <Link to="/" hash="partner" className="inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-lg bg-accent text-accent-foreground hover:opacity-90 transition">
