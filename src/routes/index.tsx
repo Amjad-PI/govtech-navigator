@@ -78,8 +78,8 @@ function Nav() {
           <a href="#projects" className="hover:text-foreground transition">
             Portfolio
           </a>
-          <a href="#services" className="hover:text-foreground transition">
-            Services
+          <a href="/rfp-services" className="hover:text-foreground transition">
+            RFP Services
           </a>
           <a href="#why" className="hover:text-foreground transition">
             Why Us

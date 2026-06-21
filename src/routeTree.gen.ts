@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as RfpServicesRouteImport } from './routes/rfp-services'
 import { Route as CapabilityRouteImport } from './routes/capability'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiDownloadFilenameRouteImport } from './routes/api/download.$filename'
 
+const RfpServicesRoute = RfpServicesRouteImport.update({
+  id: '/rfp-services',
+  path: '/rfp-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CapabilityRoute = CapabilityRouteImport.update({
   id: '/capability',
   path: '/capability',
@@ -32,35 +38,51 @@ const ApiDownloadFilenameRoute = ApiDownloadFilenameRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/capability': typeof CapabilityRoute
+  '/rfp-services': typeof RfpServicesRoute
   '/api/download/$filename': typeof ApiDownloadFilenameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/capability': typeof CapabilityRoute
+  '/rfp-services': typeof RfpServicesRoute
   '/api/download/$filename': typeof ApiDownloadFilenameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/capability': typeof CapabilityRoute
+  '/rfp-services': typeof RfpServicesRoute
   '/api/download/$filename': typeof ApiDownloadFilenameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/capability' | '/api/download/$filename'
+  fullPaths: '/' | '/capability' | '/rfp-services' | '/api/download/$filename'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/capability' | '/api/download/$filename'
-  id: '__root__' | '/' | '/capability' | '/api/download/$filename'
+  to: '/' | '/capability' | '/rfp-services' | '/api/download/$filename'
+  id:
+    | '__root__'
+    | '/'
+    | '/capability'
+    | '/rfp-services'
+    | '/api/download/$filename'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CapabilityRoute: typeof CapabilityRoute
+  RfpServicesRoute: typeof RfpServicesRoute
   ApiDownloadFilenameRoute: typeof ApiDownloadFilenameRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/rfp-services': {
+      id: '/rfp-services'
+      path: '/rfp-services'
+      fullPath: '/rfp-services'
+      preLoaderRoute: typeof RfpServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/capability': {
       id: '/capability'
       path: '/capability'
@@ -88,6 +110,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CapabilityRoute: CapabilityRoute,
+  RfpServicesRoute: RfpServicesRoute,
   ApiDownloadFilenameRoute: ApiDownloadFilenameRoute,
 }
 export const routeTree = rootRouteImport

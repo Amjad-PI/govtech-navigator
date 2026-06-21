@@ -30,7 +30,7 @@ function Nav() {
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
           <Link to="/" hash="projects" className="hover:text-foreground transition">Portfolio</Link>
-          <Link to="/" hash="services" className="hover:text-foreground transition">Services</Link>
+          <Link to="/rfp-services" className="text-foreground font-medium">RFP Services</Link>
           <Link to="/" hash="why" className="hover:text-foreground transition">Why Us</Link>
           <Link to="/" hash="ai" className="hover:text-foreground transition">AI & Data</Link>
           <Link to="/capability" className="text-foreground font-medium">Capability</Link>
