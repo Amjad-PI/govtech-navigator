@@ -241,8 +241,8 @@ function Hero() {
         <div className="max-w-7xl mx-auto px-6 pb-8">
           <div className="glass rounded-2xl grid grid-cols-2 md:grid-cols-4 divide-x divide-border/60">
             {[
-              { k: "20+", v: "U.S. State Projects" },
-              { k: "10+", v: "Prime Contractors Served" },
+              { k: "10+ years", v: "Enterprise IT Delivery" },
+              { k: "3 days", v: "Avg. post-award mobilization" },
               { k: "SAM.gov", v: "Compliance Ready" },
               { k: "541511 · 541512", v: "Primary NAICS" },
             ].map((s) => (
@@ -363,7 +363,7 @@ function Projects() {
 
 function CTABanner() {
   return (
-    <section className="relative py-20 px-6">
+    <section className="relative py-20 px-6" style={{ background: "#eff6ff" }}>
       <div className="max-w-7xl mx-auto">
         <div className="relative overflow-hidden rounded-[24px] bg-gradient-to-br from-[#f8fafc] via-[#eff6ff] to-[#e0f2fe] shadow-[0_24px_80px_-24px_rgba(15,23,42,0.25)] border border-[#dbeafe]/60">
           {/* Animated wave patterns */}
@@ -555,6 +555,15 @@ function Services() {
               <span className="text-sm font-medium">{c.label}</span>
             </div>
           ))}
+        </div>
+        <div className="mt-9 flex flex-wrap gap-3">
+            <a
+              href="/capability"
+              className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-accent text-accent-foreground font-semibold hover:translate-y-[-1px] hover:shadow-[0_10px_30px_-10px_oklch(0.72_0.18_150_/_0.6)] transition-all"
+            >
+              Explore our Capabilities{" "}
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition" />
+            </a>
         </div>
       </div>
     </section>
@@ -762,7 +771,7 @@ function Footer() {
               </div>
             </div>
             <p className="text-sm text-muted-foreground max-w-md">
-              U.S. State, Local & Education government IT consulting subcontractor. Trusted by prime
+              U.S. State, Local & Education government RFP and IT outsourcing partner. Trusted by prime
               contractors and state agencies for digital transformation.
             </p>
 
