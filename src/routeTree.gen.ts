@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as RfpServicesRouteImport } from './routes/rfp-services'
+import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as CapabilityRouteImport } from './routes/capability'
 import { Route as IndexRouteImport } from './routes/index'
 
 const RfpServicesRoute = RfpServicesRouteImport.update({
   id: '/rfp-services',
   path: '/rfp-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesRoute = CaseStudiesRouteImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CapabilityRoute = CapabilityRouteImport.update({
@@ -32,30 +38,34 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/capability': typeof CapabilityRoute
+  '/case-studies': typeof CaseStudiesRoute
   '/rfp-services': typeof RfpServicesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/capability': typeof CapabilityRoute
+  '/case-studies': typeof CaseStudiesRoute
   '/rfp-services': typeof RfpServicesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/capability': typeof CapabilityRoute
+  '/case-studies': typeof CaseStudiesRoute
   '/rfp-services': typeof RfpServicesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/capability' | '/rfp-services'
+  fullPaths: '/' | '/capability' | '/case-studies' | '/rfp-services'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/capability' | '/rfp-services'
-  id: '__root__' | '/' | '/capability' | '/rfp-services'
+  to: '/' | '/capability' | '/case-studies' | '/rfp-services'
+  id: '__root__' | '/' | '/capability' | '/case-studies' | '/rfp-services'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CapabilityRoute: typeof CapabilityRoute
+  CaseStudiesRoute: typeof CaseStudiesRoute
   RfpServicesRoute: typeof RfpServicesRoute
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/rfp-services'
       fullPath: '/rfp-services'
       preLoaderRoute: typeof RfpServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/capability': {
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CapabilityRoute: CapabilityRoute,
+  CaseStudiesRoute: CaseStudiesRoute,
   RfpServicesRoute: RfpServicesRoute,
 }
 export const routeTree = rootRouteImport

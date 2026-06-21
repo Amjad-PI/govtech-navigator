@@ -51,6 +51,7 @@ function Nav() {
           <a href="#ai" className="hover:text-foreground transition">AI & Data</a>
           <a href="/capability" className="hover:text-foreground transition">Capability</a>
           <a href="/rfp-services" className="hover:text-foreground transition">RFP Services</a>
+          <a href="/case-studies" className="hover:text-foreground transition">Case Studies</a>
           <a href="#partner" className="hover:text-foreground transition">Partner</a>
         </nav>
         <a href="#partner" className="inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-lg bg-accent text-accent-foreground hover:opacity-90 transition">
