@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as RfpServicesRouteImport } from './routes/rfp-services'
+import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as CapabilityRouteImport } from './routes/capability'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiDownloadFilenameRouteImport } from './routes/api/download.$filename'
@@ -17,6 +18,11 @@ import { Route as ApiDownloadFilenameRouteImport } from './routes/api/download.$
 const RfpServicesRoute = RfpServicesRouteImport.update({
   id: '/rfp-services',
   path: '/rfp-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesRoute = CaseStudiesRouteImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CapabilityRoute = CapabilityRouteImport.update({
@@ -38,12 +44,14 @@ const ApiDownloadFilenameRoute = ApiDownloadFilenameRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/capability': typeof CapabilityRoute
+  '/case-studies': typeof CaseStudiesRoute
   '/rfp-services': typeof RfpServicesRoute
   '/api/download/$filename': typeof ApiDownloadFilenameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/capability': typeof CapabilityRoute
+  '/case-studies': typeof CaseStudiesRoute
   '/rfp-services': typeof RfpServicesRoute
   '/api/download/$filename': typeof ApiDownloadFilenameRoute
 }
@@ -51,18 +59,30 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/capability': typeof CapabilityRoute
+  '/case-studies': typeof CaseStudiesRoute
   '/rfp-services': typeof RfpServicesRoute
   '/api/download/$filename': typeof ApiDownloadFilenameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/capability' | '/rfp-services' | '/api/download/$filename'
+  fullPaths:
+    | '/'
+    | '/capability'
+    | '/case-studies'
+    | '/rfp-services'
+    | '/api/download/$filename'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/capability' | '/rfp-services' | '/api/download/$filename'
+  to:
+    | '/'
+    | '/capability'
+    | '/case-studies'
+    | '/rfp-services'
+    | '/api/download/$filename'
   id:
     | '__root__'
     | '/'
     | '/capability'
+    | '/case-studies'
     | '/rfp-services'
     | '/api/download/$filename'
   fileRoutesById: FileRoutesById
@@ -70,6 +90,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CapabilityRoute: typeof CapabilityRoute
+  CaseStudiesRoute: typeof CaseStudiesRoute
   RfpServicesRoute: typeof RfpServicesRoute
   ApiDownloadFilenameRoute: typeof ApiDownloadFilenameRoute
 }
@@ -81,6 +102,13 @@ declare module '@tanstack/react-router' {
       path: '/rfp-services'
       fullPath: '/rfp-services'
       preLoaderRoute: typeof RfpServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/capability': {
@@ -110,6 +138,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CapabilityRoute: CapabilityRoute,
+  CaseStudiesRoute: CaseStudiesRoute,
   RfpServicesRoute: RfpServicesRoute,
   ApiDownloadFilenameRoute: ApiDownloadFilenameRoute,
 }

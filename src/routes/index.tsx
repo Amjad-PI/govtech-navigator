@@ -75,20 +75,17 @@ function Nav() {
           <img src={logoIcon} alt="PIScaleX" className="h-10 w-50" />
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-          <a href="#projects" className="hover:text-foreground transition">
-            Portfolio
-          </a>
           <a href="/rfp-services" className="hover:text-foreground transition">
             RFP Services
           </a>
           <a href="#why" className="hover:text-foreground transition">
             Why Us
           </a>
-          <a href="#ai" className="hover:text-foreground transition">
-            AI & Data
-          </a>
           <a href="/capability" className="hover:text-foreground transition">
             Capability
+          </a>
+          <a href="/case-studies" className="hover:text-foreground transition">
+            Case Studies
           </a>
           <a href="#partner" className="hover:text-foreground transition">
             Partner

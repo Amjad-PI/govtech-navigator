@@ -1,24 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import logoIcon from "@/assets/pi-logo-Hd-crop.jpg";
 import {
-  ArrowRight, Shield, Lock, CheckCircle2, Building2, Cpu, Cloud, BarChart3,
-  Smartphone, Brain, Database, Users, FileCheck2, Layers, Linkedin, Phone,
-  Calendar, Target, TrendingUp, Briefcase, Award, Globe2, FileText, ShieldCheck,
-  Sparkles, ScrollText, Lightbulb, Handshake, Search, GraduationCap, Clock,
-  Mail, ChevronRight,
+  ArrowRight, Building2, GraduationCap, Cloud, Database,
+  Phone, CheckCircle2, Calendar, Handshake, Mail, Landmark, Linkedin, Clock,
 } from "lucide-react";
 
-export const Route = createFileRoute("/rfp-services")({
-  component: RfpServicesPage,
+export const Route = createFileRoute("/case-studies")({
+  component: CaseStudiesPage,
   head: () => ({
     meta: [
-      { title: "RFP Services — PIScaleX | U.S. SLED Government Procurement Support" },
-      { name: "description", content: "End-to-end RFP lifecycle support for U.S. SLED government contracting. Opportunity evaluation, proposal development, compliance support, and post-award execution." },
-      { property: "og:title", content: "RFP Services — PIScaleX | U.S. SLED Government Procurement Support" },
-      { property: "og:description", content: "End-to-end RFP lifecycle support for U.S. SLED government contracting." },
-      { property: "og:url", content: "/rfp-services" },
+      { title: "Case Studies — PIScaleX | Public Sector Delivery Experience" },
+      { name: "description", content: "Representative public-sector delivery experience across state agencies, local governments, K-12 districts, higher education, and health organizations." },
+      { property: "og:title", content: "Case Studies — PIScaleX | Public Sector Delivery Experience" },
+      { property: "og:description", content: "Public-sector modernization, cloud, data, and citizen services engagements across SLED and health sectors." },
+      { property: "og:url", content: "/case-studies" },
     ],
-    links: [{ rel: "canonical", href: "/rfp-services" }],
+    links: [{ rel: "canonical", href: "/case-studies" }],
   }),
 });
 
@@ -30,10 +27,10 @@ function Nav() {
           <img src={logoIcon} alt="PIScaleX" className="h-10 w-50" />
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-          <Link to="/rfp-services" className="text-foreground font-medium">RFP Services</Link>
+          <Link to="/rfp-services" className="hover:text-foreground transition">RFP Services</Link>
           <Link to="/" hash="why" className="hover:text-foreground transition">Why Us</Link>
           <Link to="/capability" className="hover:text-foreground transition">Capability</Link>
-          <Link to="/case-studies" className="hover:text-foreground transition">Case Studies</Link>
+          <Link to="/case-studies" className="text-foreground font-medium">Case Studies</Link>
           <Link to="/" hash="partner" className="hover:text-foreground transition">Partner</Link>
         </nav>
         <span>📞 +1 (703) 666-7959</span>
@@ -58,24 +55,10 @@ function SectionHeader({ eyebrow, title, sub }: { eyebrow: string; title: string
   );
 }
 
-function CtaInline({ label, href = "#contact", icon: Icon = ArrowRight }: { label: string; href?: string; icon?: any }) {
-  return (
-    <a href={href} className="group inline-flex items-center gap-2 mt-8 px-5 py-2.5 rounded-lg bg-accent text-accent-foreground text-sm font-medium hover:opacity-90 transition">
-      {label}
-      <Icon className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-    </a>
-  );
-}
-
 /* ──────────────────────── HERO ──────────────────────── */
 function Hero() {
-  const metrics = [
-    { value: "10+", label: "Years Enterprise IT Delivery" },
-    { value: "3-Day", label: "Avg. Post-Award Mobilization" },
-    { value: "100%", label: "Compliance-Driven Approach" },
-  ];
   return (
-    <section className="relative min-h-[88vh] flex items-center pt-28 pb-24 overflow-hidden">
+    <section className="relative min-h-[80vh] flex items-center pt-28 pb-24 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[#0b1628]" />
         <div className="absolute inset-0 bg-grid animate-grid opacity-[0.08]" />
@@ -86,34 +69,25 @@ function Hero() {
       <div className="max-w-7xl mx-auto px-6 w-full">
         <div className="max-w-3xl animate-fade-up">
           <div className="inline-flex items-center gap-2 glass px-3 py-1.5 rounded-full text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-6">
-            <ShieldCheck className="h-3.5 w-3.5 text-primary" /> End-to-End RFP Lifecycle
+            <Landmark className="h-3.5 w-3.5 text-primary" /> Public Sector Delivery
           </div>
           <h1 className="font-display text-4xl md:text-5xl lg:text-[3.6rem] font-semibold leading-[1.05] text-gradient">
-            From opportunity evaluation to post-award execution
+            Selected Public Sector Engagements
           </h1>
           <p className="mt-6 text-muted-foreground text-lg md:text-xl leading-relaxed max-w-2xl">
-            PIScaleX provides structured support across every stage of the procurement lifecycle.
+            Representative delivery experience across state agencies, local governments, K-12 districts, higher education institutions, and public-sector organizations.
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed max-w-2xl">
-            One accountable partner for bid strategy, proposal development, compliance support, and contract execution readiness.
+            Detailed project references, methodologies, and performance validations are available upon request and subject to applicable Non-Disclosure Agreements (NDAs).
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="https://calendly.com/amjad-pi-pisolglobal/ussled" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent text-accent-foreground font-medium hover:opacity-90 transition shadow-lg shadow-accent/20">
-              <Calendar className="h-4 w-4" /> Schedule a Consultation
+            <a href="mailto:info@piscalex.us" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent text-accent-foreground font-medium hover:opacity-90 transition shadow-lg shadow-accent/20">
+              <Calendar className="h-4 w-4" /> Request Project References
             </a>
-            <a href="#contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass text-foreground font-medium hover:bg-white/5 transition">
-              <Handshake className="h-4 w-4" /> Discuss an Opportunity
+            <a href="https://calendly.com/amjad-pi-pisolglobal/ussled" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass text-foreground font-medium hover:bg-white/5 transition">
+              <Handshake className="h-4 w-4" /> Schedule a Consultation
             </a>
-          </div>
-
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {metrics.map((m) => (
-              <div key={m.label} className="glass rounded-xl p-4">
-                <div className="font-display text-2xl font-semibold text-foreground">{m.value}</div>
-                <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1">{m.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </div>
@@ -121,52 +95,73 @@ function Hero() {
   );
 }
 
-/* ─────────────────── RFP SERVICES ─────────────────── */
-function RfpServices() {
-  const columns = [
+/* ─────────────────── CASE STUDIES ─────────────────── */
+function CaseStudies() {
+  const studies = [
     {
-      title: "Opportunity & Capture Strategy",
-      icon: Search,
-      desc: "Build a stronger foundation before investing in a bid.",
-      items: [
-        "Opportunity Assessment & Qualification",
-        "Solicitation Review & Requirements Analysis",
-        "Bid / No-Bid Decision Support",
-        "Capability Statement Development",
-        "Past Performance Positioning",
-        "Teaming & Partner Ecosystem Development",
-        "Subcontractor & SDB Partner Identification",
-        "Pre-Proposal Coordination & Q&A Management",
+      sector: "State Agency",
+      icon: Building2,
+      title: "Statewide Citizen Services Portal Modernization",
+      desc: "Modernized a legacy citizen services platform into a cloud-native digital experience supporting millions of residents while improving accessibility, performance, and service delivery.",
+      outcomes: [
+        "62% reduction in page load times",
+        "Zero-downtime production transition",
+        "Section 508 accessibility compliance achieved",
       ],
     },
     {
-      title: "Proposal Development & Compliance",
-      icon: FileText,
-      desc: "Develop compliant, competitive, and evaluation-focused responses.",
-      items: [
-        "Proposal Planning & Authoring",
-        "Compliance Tracking & Response Mapping",
-        "Technical Solution Narratives",
-        "Pricing Support & Evaluation Alignment",
-        "Past Performance Story Development",
-        "Key Personnel & Resume Customization",
-        "Quality Assurance Reviews",
-        "Pink, Red, and Gold Team Evaluations",
+      sector: "K-12 Education",
+      icon: GraduationCap,
+      title: "District-Wide Student Information System Modernization",
+      desc: "Migrated a large-scale student information environment to a modern cloud platform while introducing advanced analytics and governance capabilities.",
+      outcomes: [
+        "$1.4M annual licensing savings",
+        "Real-time operational dashboards",
+        "FERPA-aligned data governance framework",
       ],
     },
     {
-      title: "Award Transition & Delivery Readiness",
-      icon: Award,
-      desc: "Accelerate the path from contract award to successful execution.",
-      items: [
-        "Contract Transition Support",
-        "Onboarding & Mobilization Planning",
-        "Program & Delivery Coordination",
-        "Performance Measurement & Reporting",
-        "Regulatory and Contract Compliance Support",
-        "Change Management & Contract Modifications",
-        "Renewal & Extension Support",
-        "Knowledge Transfer & Contract Closeout",
+      sector: "Higher Education",
+      icon: GraduationCap,
+      title: "ERP & Financial Aid Process Optimization",
+      desc: "Enhanced enterprise financial operations and automated aid-disbursement workflows to improve operational efficiency and user adoption.",
+      outcomes: [
+        "48-hour implementation turnaround",
+        "92% staff adoption within 30 days",
+        "$600K recovered through process optimization",
+      ],
+    },
+    {
+      sector: "Municipal Government",
+      icon: Phone,
+      title: "311 Contact Center & Citizen Engagement Modernization",
+      desc: "Implemented a multilingual citizen engagement platform combining contact center operations, self-service capabilities, and case management.",
+      outcomes: [
+        "Average handling time reduced to 2.4 minutes",
+        "99.7% SLA compliance achieved",
+        "Full bilingual service coverage",
+      ],
+    },
+    {
+      sector: "State Health Agency",
+      icon: Database,
+      title: "Public Health Data Warehouse & Predictive Analytics",
+      desc: "Developed a secure analytics platform supporting statewide reporting, operational intelligence, and predictive modeling initiatives.",
+      outcomes: [
+        "Reporting latency reduced from days to hours",
+        "12 machine learning models deployed",
+        "StateRAMP-ready architecture",
+      ],
+    },
+    {
+      sector: "Community College System",
+      icon: Cloud,
+      title: "Cloud Migration & Managed Operations",
+      desc: "Modernized infrastructure and migrated critical workloads to the cloud while establishing a co-managed operations model.",
+      outcomes: [
+        "38% infrastructure cost reduction",
+        "71% improvement in incident resolution times",
+        "Zero Priority-1 incidents during year one",
       ],
     },
   ];
@@ -175,108 +170,34 @@ function RfpServices() {
     <section className="py-24 section-alt">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
-          eyebrow="Services"
-          title="Comprehensive Procurement Support"
-          sub="Strategic guidance and execution support across every phase of the government contracting lifecycle."
+          eyebrow="Featured Engagements"
+          title="Examples of Modernization, Cloud, Data, and Transformation"
+          sub="Modernization, cloud, data, citizen services, and enterprise transformation initiatives across the public sector."
         />
-        <div className="mt-12 grid md:grid-cols-3 gap-5">
-          {columns.map((col) => (
-            <div key={col.title} className="glass rounded-2xl p-6 flex flex-col">
-              <div className="h-10 w-10 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center mb-4">
-                <col.icon className="h-5 w-5 text-primary" />
+
+        <div className="mt-12 grid md:grid-cols-2 gap-5">
+          {studies.map((s) => (
+            <div key={s.title} className="glass rounded-2xl p-7 flex flex-col hover:-translate-y-1 hover:bg-white/[0.05] transition">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-10 w-10 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center">
+                  <s.icon className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <div className="text-[11px] uppercase tracking-wider text-muted-foreground">{s.sector}</div>
+                  <h3 className="font-display font-semibold text-lg leading-tight">{s.title}</h3>
+                </div>
               </div>
-              <h3 className="font-display font-semibold text-lg">{col.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{col.desc}</p>
-              <ul className="mt-5 space-y-2.5 flex-1">
-                {col.items.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm text-foreground/90">
+              <p className="text-sm text-muted-foreground leading-relaxed flex-1">{s.desc}</p>
+              <div className="mt-5 space-y-2">
+                {s.outcomes.map((o) => (
+                  <div key={o} className="flex items-start gap-2.5 text-sm text-foreground/90">
                     <CheckCircle2 className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>
+                    <span>{o}</span>
+                  </div>
                 ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-16 glass rounded-3xl p-10 md:p-12 relative overflow-hidden">
-          <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-primary/20 blur-3xl" />
-          <div className="relative max-w-3xl">
-            <h3 className="font-display text-2xl md:text-3xl font-semibold text-gradient leading-tight">
-              Support at Every Stage of the Procurement Lifecycle
-            </h3>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              Whether you&apos;re evaluating an opportunity, preparing a proposal, or transitioning into delivery, PIScaleX provides the expertise and operational support needed to move forward with confidence.
-            </p>
-            <CtaInline label="Talk to an RFP Specialist" href="#contact" />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ─────────────────── WHY PISCALEX ─────────────────── */
-function WhyPIScaleX() {
-  const cards = [
-    { icon: Calendar, t: "10+ Years Enterprise IT Delivery", d: "Supporting complex technology initiatives through structured execution and operational excellence." },
-    { icon: Clock, t: "3-Day Average Post-Award Mobilization", d: "Rapid onboarding and deployment support to help teams meet critical timelines." },
-    { icon: ShieldCheck, t: "Compliance-Focused Approach", d: "Processes designed around documentation quality, compliance requirements, and procurement best practices." },
-  ];
-  return (
-    <section className="py-24">
-      <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader
-          eyebrow="Why PIScaleX"
-          title="Why Organizations Choose PIScaleX"
-        />
-        <div className="mt-12 grid md:grid-cols-3 gap-5">
-          {cards.map((c) => (
-            <div key={c.t} className="glass rounded-2xl p-6 hover:-translate-y-1 hover:bg-white/[0.05] transition">
-              <div className="h-10 w-10 rounded-lg bg-accent/15 border border-accent/30 flex items-center justify-center mb-4">
-                <c.icon className="h-5 w-5 text-accent" />
               </div>
-              <div className="font-display font-semibold text-lg">{c.t}</div>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{c.d}</p>
             </div>
           ))}
-        </div>
-        <CtaInline label="Schedule a Strategy Call" href="#contact" />
-      </div>
-    </section>
-  );
-}
-
-/* ─────────────── NDA COMMITMENT ─────────────── */
-function NdaCommitment() {
-  return (
-    <section className="py-24 section-alt">
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="glass rounded-3xl p-10 md:p-12 relative overflow-hidden">
-          <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-primary/20 blur-3xl" />
-          <div className="relative">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-[11px] uppercase tracking-wider text-primary mb-5">
-              <Lock className="h-3 w-3" /> Confidentiality Commitment
-            </div>
-            <h2 className="font-display text-3xl md:text-4xl font-semibold text-gradient leading-tight">
-              Confidentiality & NDA Commitment
-            </h2>
-            <p className="mt-5 text-muted-foreground leading-relaxed">
-              All client engagements, proposal support activities, procurement advisory services, and bid intelligence efforts are performed under strict Non-Disclosure Agreements (NDAs).
-            </p>
-            <p className="mt-3 text-muted-foreground leading-relaxed">
-              We maintain confidentiality throughout the procurement lifecycle and safeguard sensitive proposal, evaluation, and contract-related information.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-white/[0.03] text-xs text-muted-foreground">
-                <Shield className="h-3.5 w-3.5 text-primary" /> NDA Protected
-              </span>
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-white/[0.03] text-xs text-muted-foreground">
-                <Lock className="h-3.5 w-3.5 text-accent" /> Confidentiality Assured
-              </span>
-            </div>
-            <CtaInline label="Discuss a Confidential Opportunity" href="#contact" />
-          </div>
         </div>
       </div>
     </section>
@@ -286,20 +207,23 @@ function NdaCommitment() {
 /* ─────────────── FINAL CTA ─────────────── */
 function FinalCTA() {
   return (
-    <section id="contact" className="py-24 section-alt">
+    <section className="py-24">
       <div className="max-w-5xl mx-auto px-6 text-center">
         <div className="inline-flex items-center gap-2 glass px-3 py-1.5 rounded-full text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-5">
           <Handshake className="h-3.5 w-3.5 text-primary" /> Start the Conversation
         </div>
         <h2 className="font-display text-3xl md:text-5xl font-semibold text-gradient leading-tight">
-          Need Support Across the Procurement Lifecycle?
+          Looking for Relevant Public Sector Experience?
         </h2>
         <p className="mt-5 text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed">
-          Whether you need opportunity intelligence, proposal development, compliance support, teaming assistance, or post-award execution support, PIScaleX can help.
+          Whether you are evaluating a modernization initiative, pursuing a government opportunity, or seeking a qualified delivery partner, our team can share relevant experience and discuss how we can support your objectives.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <a href="https://calendly.com/amjad-pi-pisolglobal/ussled" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent text-accent-foreground font-medium hover:opacity-90 transition shadow-lg shadow-accent/20">
             <Calendar className="h-4 w-4" /> Schedule a Consultation
+          </a>
+          <a href="mailto:info@piscalex.us" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass text-foreground font-medium hover:bg-white/5 transition">
+            <Mail className="h-4 w-4" /> Request Project References
           </a>
         </div>
       </div>
@@ -448,16 +372,13 @@ function Footer() {
   );
 }
 
-
-function RfpServicesPage() {
+function CaseStudiesPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
       <main>
         <Hero />
-        <RfpServices />
-        <WhyPIScaleX />
-        <NdaCommitment />
+        <CaseStudies />
         <FinalCTA />
       </main>
       <Footer />
