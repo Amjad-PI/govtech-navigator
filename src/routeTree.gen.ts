@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as RfpServicesRouteImport } from './routes/rfp-services'
+import { Route as DistrictwideDataRouteImport } from './routes/districtwide-data'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as CapabilityRouteImport } from './routes/capability'
 import { Route as IndexRouteImport } from './routes/index'
@@ -17,6 +18,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const RfpServicesRoute = RfpServicesRouteImport.update({
   id: '/rfp-services',
   path: '/rfp-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DistrictwideDataRoute = DistrictwideDataRouteImport.update({
+  id: '/districtwide-data',
+  path: '/districtwide-data',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CaseStudiesRoute = CaseStudiesRouteImport.update({
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/capability': typeof CapabilityRoute
   '/case-studies': typeof CaseStudiesRoute
+  '/districtwide-data': typeof DistrictwideDataRoute
   '/rfp-services': typeof RfpServicesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/capability': typeof CapabilityRoute
   '/case-studies': typeof CaseStudiesRoute
+  '/districtwide-data': typeof DistrictwideDataRoute
   '/rfp-services': typeof RfpServicesRoute
 }
 export interface FileRoutesById {
@@ -52,20 +60,38 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/capability': typeof CapabilityRoute
   '/case-studies': typeof CaseStudiesRoute
+  '/districtwide-data': typeof DistrictwideDataRoute
   '/rfp-services': typeof RfpServicesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/capability' | '/case-studies' | '/rfp-services'
+  fullPaths:
+    | '/'
+    | '/capability'
+    | '/case-studies'
+    | '/districtwide-data'
+    | '/rfp-services'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/capability' | '/case-studies' | '/rfp-services'
-  id: '__root__' | '/' | '/capability' | '/case-studies' | '/rfp-services'
+  to:
+    | '/'
+    | '/capability'
+    | '/case-studies'
+    | '/districtwide-data'
+    | '/rfp-services'
+  id:
+    | '__root__'
+    | '/'
+    | '/capability'
+    | '/case-studies'
+    | '/districtwide-data'
+    | '/rfp-services'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CapabilityRoute: typeof CapabilityRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
+  DistrictwideDataRoute: typeof DistrictwideDataRoute
   RfpServicesRoute: typeof RfpServicesRoute
 }
 
@@ -76,6 +102,13 @@ declare module '@tanstack/react-router' {
       path: '/rfp-services'
       fullPath: '/rfp-services'
       preLoaderRoute: typeof RfpServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/districtwide-data': {
+      id: '/districtwide-data'
+      path: '/districtwide-data'
+      fullPath: '/districtwide-data'
+      preLoaderRoute: typeof DistrictwideDataRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/case-studies': {
@@ -106,6 +139,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CapabilityRoute: CapabilityRoute,
   CaseStudiesRoute: CaseStudiesRoute,
+  DistrictwideDataRoute: DistrictwideDataRoute,
   RfpServicesRoute: RfpServicesRoute,
 }
 export const routeTree = rootRouteImport
