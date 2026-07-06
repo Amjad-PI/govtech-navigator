@@ -13,6 +13,7 @@ import { Route as RfpServicesRouteImport } from './routes/rfp-services'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as CapabilityRouteImport } from './routes/capability'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CasestudiesDistrictwideDataKansasRouteImport } from './routes/casestudies/districtwide-data-kansas'
 import { Route as ApiDownloadFilenameRouteImport } from './routes/api/download.$filename'
 
 const RfpServicesRoute = RfpServicesRouteImport.update({
@@ -35,6 +36,12 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CasestudiesDistrictwideDataKansasRoute =
+  CasestudiesDistrictwideDataKansasRouteImport.update({
+    id: '/casestudies/districtwide-data-kansas',
+    path: '/casestudies/districtwide-data-kansas',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiDownloadFilenameRoute = ApiDownloadFilenameRouteImport.update({
   id: '/api/download/$filename',
   path: '/api/download/$filename',
@@ -46,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/capability': typeof CapabilityRoute
   '/case-studies': typeof CaseStudiesRoute
   '/rfp-services': typeof RfpServicesRoute
+  '/casestudies/districtwide-data-kansas': typeof CasestudiesDistrictwideDataKansasRoute
   '/api/download/$filename': typeof ApiDownloadFilenameRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +61,7 @@ export interface FileRoutesByTo {
   '/capability': typeof CapabilityRoute
   '/case-studies': typeof CaseStudiesRoute
   '/rfp-services': typeof RfpServicesRoute
+  '/casestudies/districtwide-data-kansas': typeof CasestudiesDistrictwideDataKansasRoute
   '/api/download/$filename': typeof ApiDownloadFilenameRoute
 }
 export interface FileRoutesById {
@@ -61,6 +70,7 @@ export interface FileRoutesById {
   '/capability': typeof CapabilityRoute
   '/case-studies': typeof CaseStudiesRoute
   '/rfp-services': typeof RfpServicesRoute
+  '/casestudies/districtwide-data-kansas': typeof CasestudiesDistrictwideDataKansasRoute
   '/api/download/$filename': typeof ApiDownloadFilenameRoute
 }
 export interface FileRouteTypes {
@@ -70,6 +80,7 @@ export interface FileRouteTypes {
     | '/capability'
     | '/case-studies'
     | '/rfp-services'
+    | '/casestudies/districtwide-data-kansas'
     | '/api/download/$filename'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -77,6 +88,7 @@ export interface FileRouteTypes {
     | '/capability'
     | '/case-studies'
     | '/rfp-services'
+    | '/casestudies/districtwide-data-kansas'
     | '/api/download/$filename'
   id:
     | '__root__'
@@ -84,6 +96,7 @@ export interface FileRouteTypes {
     | '/capability'
     | '/case-studies'
     | '/rfp-services'
+    | '/casestudies/districtwide-data-kansas'
     | '/api/download/$filename'
   fileRoutesById: FileRoutesById
 }
@@ -92,6 +105,7 @@ export interface RootRouteChildren {
   CapabilityRoute: typeof CapabilityRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
   RfpServicesRoute: typeof RfpServicesRoute
+  CasestudiesDistrictwideDataKansasRoute: typeof CasestudiesDistrictwideDataKansasRoute
   ApiDownloadFilenameRoute: typeof ApiDownloadFilenameRoute
 }
 
@@ -125,6 +139,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/casestudies/districtwide-data-kansas': {
+      id: '/casestudies/districtwide-data-kansas'
+      path: '/casestudies/districtwide-data-kansas'
+      fullPath: '/casestudies/districtwide-data-kansas'
+      preLoaderRoute: typeof CasestudiesDistrictwideDataKansasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/download/$filename': {
       id: '/api/download/$filename'
       path: '/api/download/$filename'
@@ -140,6 +161,8 @@ const rootRouteChildren: RootRouteChildren = {
   CapabilityRoute: CapabilityRoute,
   CaseStudiesRoute: CaseStudiesRoute,
   RfpServicesRoute: RfpServicesRoute,
+  CasestudiesDistrictwideDataKansasRoute:
+    CasestudiesDistrictwideDataKansasRoute,
   ApiDownloadFilenameRoute: ApiDownloadFilenameRoute,
 }
 export const routeTree = rootRouteImport

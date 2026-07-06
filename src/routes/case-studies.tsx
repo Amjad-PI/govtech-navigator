@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import logoIcon from "@/assets/pi-logo-Hd-crop.jpg";
 import {
   ArrowRight, Building2, GraduationCap, Cloud, Database,
-  Phone, CheckCircle2, Calendar, Handshake, Mail, Landmark, Linkedin, Clock,
+  Phone, CheckCircle2, Calendar, Handshake, Mail, Landmark, Linkedin, Clock, ChevronRight,
 } from "lucide-react";
 
 export const Route = createFileRoute("/case-studies")({
@@ -101,6 +101,7 @@ function CaseStudies() {
     {
       sector: "State Agency",
       icon: Building2,
+      link: "#",
       title: "Statewide Citizen Services Portal Modernization",
       desc: "Modernized a legacy citizen services platform into a cloud-native digital experience supporting millions of residents while improving accessibility, performance, and service delivery.",
       outcomes: [
@@ -112,10 +113,11 @@ function CaseStudies() {
     {
       sector: "K-12 Education",
       icon: GraduationCap,
-      title: "District-Wide Student Information System Modernization",
-      desc: "Migrated a large-scale student information environment to a modern cloud platform while introducing advanced analytics and governance capabilities.",
+      link: "/casestudies/districtwide-data-kansas",
+      title: "District-Wide Data Dashboard Solution",
+      desc: "Develop a centralized districtwide analytics platform to replace fragmented reporting across siloed systems.",
       outcomes: [
-        "$1.4M annual licensing savings",
+        "Serving ~21,000 students across Pre-K through Grade 12",
         "Real-time operational dashboards",
         "FERPA-aligned data governance framework",
       ],
@@ -123,6 +125,7 @@ function CaseStudies() {
     {
       sector: "Higher Education",
       icon: GraduationCap,
+      link: "#",
       title: "ERP & Financial Aid Process Optimization",
       desc: "Enhanced enterprise financial operations and automated aid-disbursement workflows to improve operational efficiency and user adoption.",
       outcomes: [
@@ -134,6 +137,7 @@ function CaseStudies() {
     {
       sector: "Municipal Government",
       icon: Phone,
+      link: "#",
       title: "311 Contact Center & Citizen Engagement Modernization",
       desc: "Implemented a multilingual citizen engagement platform combining contact center operations, self-service capabilities, and case management.",
       outcomes: [
@@ -145,6 +149,7 @@ function CaseStudies() {
     {
       sector: "State Health Agency",
       icon: Database,
+      link: "#",
       title: "Public Health Data Warehouse & Predictive Analytics",
       desc: "Developed a secure analytics platform supporting statewide reporting, operational intelligence, and predictive modeling initiatives.",
       outcomes: [
@@ -156,6 +161,7 @@ function CaseStudies() {
     {
       sector: "Community College System",
       icon: Cloud,
+      link: "#",
       title: "Cloud Migration & Managed Operations",
       desc: "Modernized infrastructure and migrated critical workloads to the cloud while establishing a co-managed operations model.",
       outcomes: [
@@ -196,6 +202,11 @@ function CaseStudies() {
                   </div>
                 ))}
               </div>
+              <a
+                href={s.link}
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-primary/40 text-primary hover:bg-primary/10 transition text-sm font-medium max-w-[250px] ml-4 mt-4" >
+                View Full Case Study <ChevronRight className="h-4 w-4" />
+              </a>
             </div>
           ))}
         </div>
