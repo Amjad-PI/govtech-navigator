@@ -125,13 +125,13 @@ function CaseStudies() {
     {
       sector: "Higher Education",
       icon: GraduationCap,
-      link: "#",
-      title: "ERP & Financial Aid Process Optimization",
-      desc: "Enhanced enterprise financial operations and automated aid-disbursement workflows to improve operational efficiency and user adoption.",
+      link: "/casestudies/enterprise-IT-ticketing-dona-ana-county",
+      title: "Enterprise IT Ticketing, Asset Management and Cost Tracking System",
+      desc: "Cloud-native ITSM solution delivering native reporting, multi-campus asset visibility, and federal-fund cost allocation across 40 campuses.",
       outcomes: [
-        "48-hour implementation turnaround",
-        "92% staff adoption within 30 days",
-        "$600K recovered through process optimization",
+        "40 campuses serving 22,500 students",
+        "Encryption in transit (TLS 1.2+) and at rest (AES-256)",
+        "Reporting-first positioning",
       ],
     },
     {

@@ -5,21 +5,21 @@ import {
   Layers, Linkedin, Phone, Clock, Building2, Calendar, Mail, FileText, CheckCircle2,
 } from "lucide-react";
 
-export const Route = createFileRoute("/casestudies/districtwide-data-kansas")({
-  component: DistrictwideDataPage,
+export const Route = createFileRoute("/casestudies/enterprise-IT-ticketing-dona-ana-county")({
+  component: EnterpriseITTicketing,
   head: () => ({
     meta: [
-      { title: "Case Study: Districtwide Data Dashboard — PIScaleX | U.S. SLED Government Contracting" },
-      { name: "description", content: "Pre-bid intelligence package for Kansas City Kansas Public Schools — consolidating 8 enterprise systems into a FERPA-compliant, district-wide decision-support environment." },
-      { property: "og:title", content: "Case Studies — PIScaleX | Districtwide Data Dashboard" },
-      { property: "og:description", content: "KCKPS RFP 26-003 pre-bid intelligence: architecture, compliance, and competitive pricing for prime contractors." },
-      { property: "og:url", content: "/casestudies/districtwide-data-kansas" },
+      { title: "Case Study: Enterprise IT Ticketing — PIScaleX | U.S. SLED Government Contracting" },
+      { name: "description", content: "Pre-bid intelligence package for Las Cruces Public Schools — consolidating 8 enterprise systems into a FERPA-compliant, multi-site ticketing, asset & cost tracking." },
+      { property: "og:title", content: "Case Studies — PIScaleX | Enterprise IT Ticketing" },
+      { property: "og:description", content: "LCPS RFP 25-26-08P pre-bid intelligence: architecture, compliance, and competitive pricing for prime contractors." },
+      { property: "og:url", content: "/enterprise-IT-ticketing-dona-ana-county" },
     ],
-    links: [{ rel: "canonical", href: "/casestudies/districtwide-data-kansas" }],
+    links: [{ rel: "canonical", href: "/casestudies/enterprise-IT-ticketing-dona-ana-county" }],
   }),
 });
 
-const KCKPS_LOGO = "https://assets.piscalex.us/sled/KansasCPS.png";
+const LCPSNM_LOGO = "https://assets.piscalex.us/sled/LasCPS_NewMexico_Logo.png";
 
 function Nav() {
   return (
@@ -74,12 +74,12 @@ function Hero() {
             <ShieldCheck className="h-3.5 w-3.5 text-primary" /> Pre-Bid Intelligence
           </div>
           <h1 className="font-display text-4xl md:text-5xl lg:text-[3.6rem] font-semibold leading-[1.05] text-gradient">
-            Districtwide Data
+            Enterprise IT Ticketing,
             <br />
-            Dashboard Solution
+            Asset Management & Cost Ticketing System
           </h1>
           <p className="mt-6 text-muted-foreground text-lg md:text-xl leading-relaxed max-w-2xl">
-            Pre-bid intelligence package for Kansas City Kansas Public Schools — consolidating 8 enterprise systems into a FERPA-compliant, district-wide decision-support environment.
+            Cloud-native ITSM replacement for New Mexico's second-largest school district - delivering native reporting, multi-campus asset visibility, and federal-fund cost allocation across 40 campuses.
           </p>
         </div>
 
@@ -89,18 +89,18 @@ function Hero() {
             <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground mb-3">Awarding Body</div>
             <div className="flex items-center gap-3">
               <div className="bg-white rounded-lg p-1.5 flex items-center justify-center h-10 w-10 flex-shrink-0">
-                <img src={KCKPS_LOGO} alt="Kansas City Kansas Public Schools" className="h-full w-full object-contain" />
+                <img src={LCPSNM_LOGO} alt="Las Cruces Public Schools" className="h-full w-full object-contain" />
               </div>
               <div className="text-xs leading-snug">
-                <div className="font-semibold text-foreground">Kansas City Kansas Public Schools</div>
-                <div className="text-muted-foreground">USD 500 · Wyandotte County, KS</div>
+                <div className="font-semibold text-foreground">Las Cruces Public Schools</div>
+                <div className="text-muted-foreground">Dona Ana County, NM</div>
               </div>
             </div>
           </div>
           {[
             { label: "Solicitation", value: "RFP 26-003" },
-            { label: "Contract Value", value: "$500K – $1.5M", sub: "5-Year TCO" },
-            { label: "Service", value: "Pre-Bid Intelligence", sub: "Under NDA" },
+            { label: "Contract Value", value: "$100,000 – $250,000" },
+            { label: "Service", value: "Pre-Bid Intelligence / Post Bid Support", sub: "Under NDA" },
           ].map((m) => (
             <div key={m.label} className="glass rounded-xl p-5">
               <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground mb-3">{m.label}</div>
@@ -117,18 +117,18 @@ function Hero() {
 /* ─────────────── PROJECT OVERVIEW ─────────────── */
 function Overview() {
   const stats = [
-    { n: "8", label: "Systems to Integrate", desc: "Infinite Campus, BusinessPLUS, Fastbridge, i-Ready, Frontline, CKLA, Amplify ELA, CommonLit 360" },
-    { n: "125", label: "Evaluation Points", desc: "Functionality 20 · Cost 20 · Presentation 20 · Integration 15 · Security 15" },
-    { n: "45", label: "Facilities", desc: "Serving ~21,000 students across Pre-K through Grade 12 in Wyandotte County" },
-    { n: "3+2", label: "Year Contract", desc: "Base term plus two optional renewals. 5-year TCO: $500K – $1.5M" },
+    { n: "5", label: "Systems to Integrate", desc: "Microsoft Azure Active Directory, Rapid Identity, Edupoint Synergy SIS, Tyler School ERP Pro, SchoolDude (legacy data migration source)" },
+    { n: "100", label: "Evaluation Points", desc: "Functionality 20 · Cost 30 · Multi Site Support 20 · Integration 10 · Reporting/Analytics 10 · Training/Support 10" },
+    { n: "45", label: "Facilities", desc: "Serving ~22,500 students, 3,200 employees and 40 school campuses, 25,000–35,000 assets under management" },
+    { n: "5", label: "Compliance", desc: "FERPA, WCAG 2.1 AA, New Mexico Data Privacy, Encryption in transit (TLS 1.2+) and at rest (AES-256), US-based resources only" },
   ];
   const objectives = [
-    ["Single Source of Truth", "Integrate 8+ systems into one unified platform via real-time API synchronization"],
-    ["Instructional Decision-Making", "Configurable dashboards with drill-down and early warning indicators"],
+    ["Single Source of Truth", "Integrate 5+ systems into one unified platform via real-time API synchronization"],
+    ["Reporting and Analytics", "Real-time and historical dashboards. Customizable reports on tickets volumes, SLA compliance, workload distributions, etc."],
+    ["Multi-Site and Multi-Department Support", "Support for multiple departments with ability to separate or share queues, workflows, and data as needed."],
     ["Transparency & Accessibility", "Role-based access with WCAG 2.1 AA compliance and SSO"],
-    ["Manual Reporting Reduction", "ETL automation replacing weekly manual Excel exports"],
-    ["Equity-Focused Analysis", "Subgroup disaggregation across 65+ languages and demographic groups"],
-    ["Operational Insights", "HR and finance integration for staffing trends and budget monitoring"],
+    ["Asset Management", "Track 25,000 to 35,000 endpoints from acquisition through disposal."],
+    ["Implementation, Training, and Support", "Data migration from SchoolDude, project management and implementation planning"],
   ];
 
   return (
@@ -137,18 +137,18 @@ function Overview() {
         <SectionHeader
           eyebrow="At a Glance"
           title="Project Overview"
-          sub="KCKPS sought a centralized districtwide analytics platform to replace fragmented reporting across siloed systems. PIScaleX delivered a comprehensive pre-bid intelligence package enabling prime contractors to bid with precision and win with confidence."
+          sub="Las Cruces Public Schools required a unified ITSM platform to replace SchoolDude and eliminate Power BI reporting workarounds. PIScaleX delivered a comprehensive pre-bid intelligence package enabling prime contractors to bid with precision and win with confidence."
         />
 
         {/* Awarding body card */}
         <div className="mt-12 glass rounded-2xl p-7 flex flex-col md:flex-row items-start md:items-center gap-6">
           <div className="bg-white rounded-xl p-3 flex items-center justify-center h-24 w-24 flex-shrink-0">
-            <img src={KCKPS_LOGO} alt="Kansas City Kansas Public Schools" className="h-full w-full object-contain" />
+            <img src={LCPSNM_LOGO} alt="Las Cruces Public Schools" className="h-full w-full object-contain" />
           </div>
           <div>
             <div className="text-[11px] uppercase tracking-[0.18em] text-primary/90 mb-1">Awarding Body</div>
-            <div className="font-display text-2xl font-semibold text-foreground">Kansas City Kansas Public Schools</div>
-            <div className="mt-1 text-sm text-muted-foreground">USD 500 · Wyandotte County, Kansas · ~21,000 Students · 45 Facilities</div>
+            <div className="font-display text-2xl font-semibold text-foreground">Las Cruces Public Schools</div>
+            <div className="mt-1 text-sm text-muted-foreground">Dona Ana County, New Mexico · ~22,500 Students · 40 School Campuses</div>
           </div>
         </div>
         
@@ -184,23 +184,22 @@ function PreBidServices() {
     {
       icon: Search,
       title: "The Challenge",
-      body: "KCKPS operated 10+ siloed systems with no unified analytics, forcing manual Excel exports that delayed decisions and introduced FERPA compliance risks. Equity monitoring across 65+ languages was impossible.",
+      body: "LCPS's legacy SchoolDude platform could not generate native reports, forcing district staff to route data through Power BI as a workaround.",
       subTitle: "What We Uncovered",
       bullets: [
-        "Fragmented SIS, ERP, and assessment data",
-        "Ad-hoc reporting creating compliance gaps",
-        "Compressed 8-month implementation window",
+        "Asset and cost tracking were fragmented across multiple systems and spreadsheets",
+        "audit exposure for federal funding (Title I, E-Rate, grants) across 40 campuses.",
       ],
     },
     {
       icon: Settings,
       title: "The Approach",
-      body: "We decoded the RFP, identified hidden requirements, and mapped the selection criteria — all shared under strict NDA to protect competitive positioning.",
+      body: "We structured the proposal around LCPS's stated pain points rather than generic platform marketing — all shared under strict NDA to protect competitive positioning.",
       subTitle: "What We Delivered",
       bullets: [
-        "Clause-by-clause RFP structural analysis",
-        "Mandatory vs. discretionary requirement mapping",
-        "Evaluation scoring rubric with weighting breakdown",
+        "Reporting-first positioning",
+        "Described district-level, zone-level, and campus-level organizational configuration for all 40 sites, not generic multi-tenancy",
+        "Detailed SAML 2.0 federation, group-based role mapping",
       ],
     },
     {
@@ -222,7 +221,7 @@ function PreBidServices() {
         <SectionHeader
           eyebrow="Pre-Bid Services"
           title="How We Enable Prime Contractors to Win"
-          sub="PIScaleX provides structured pre-bid intelligence so primes can bid with clarity, compete with confidence, and submit winning proposals under their own signature."
+          sub="PIScaleX functioned as the technology and proposal engine behind the US Prime, translating complex SLED requirements into a winning, compliant submission."
         />
 
         <div className="mt-12 grid md:grid-cols-3 gap-5">
@@ -255,16 +254,12 @@ function PreBidServices() {
 /* ─────────────── STATEMENT OF WORK ─────────────── */
 function StatementOfWork() {
   const items = [
-    ["API Development", "RESTful integrations with OAuth 2.0 across 8 enterprise source systems"],
-    ["ETL Pipeline Design", "Apache Airflow orchestration with automated daily refresh and validation"],
-    ["Dashboard Prototyping", "Role-based visualizations for district, school, and classroom levels"],
-    ["Unit Testing & QA", "Automated validation scripts and continuous integration pipelines"],
-    ["Frontend Development", "React.js-based interface via remote repositories"],
-    ["Analytics Modules", "Python and R-based predictive modeling and trend analysis"],
-    ["Data Migration", "Phased migration with field-level accuracy verification and rollback"],
-    ["Security Framework", "AES-256 at rest, TLS 1.3 in transit, MFA, LDAP, granular RBAC"],
-    ["Documentation", "Wiki-based user guides, admin manuals, and integration specifications"],
-    ["24/7 Support", "Tier 2/3 helpdesk with offshore coverage and SLA-backed response times"],
+    ["Ticketing & Service Request Management", "Centralized management of incidents, service requests, problems, and changes across IT, Finance, HR, Facilities, and Transportation."],
+    ["Multi-Site & Multi-Department Support", "Site-specific queues, workflows, and data separation with district-wide visibility."],
+    ["Reporting & Analytics", "Native configurable dashboards with KPIs (open ticket counts, resolution times, asset condition, cost summaries)."],
+    ["Asset Management", "Lifecycle tracking for 25,000 - 35,000 endpoints from acquisition through disposal."],
+    ["Cost Tracking & Financial Transparency", "Labor, parts, and service cost association with tickets and assets."],
+    ["SSO, Security & Compliance", "Azure AD SSO via SAML 2.0, OAuth 2.0, or OpenID Connect with role-based and group-based access."],
   ];
   return (
     <section className="py-24 section-alt">
@@ -272,7 +267,7 @@ function StatementOfWork() {
         <SectionHeader
           eyebrow="Scope"
           title="Statement of Work"
-          sub="Technical deliverables engineered to position prime contractors for competitive advantage across all 125 evaluation points."
+          sub="Technical deliverables engineered to position prime contractors for competitive advantage across all 100 evaluation points."
         />
         <div className="mt-12 grid md:grid-cols-2 gap-4">
           {items.map(([t, d]) => (
@@ -494,7 +489,7 @@ function Footer() {
 }
 
 
-function DistrictwideDataPage() {
+function EnterpriseITTicketing() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
