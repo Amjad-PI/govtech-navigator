@@ -266,7 +266,7 @@ function MarketPositioning() {
           Explore six high-demand SLED technology service areas where PIScaleX can support prime contractors with scalable remote delivery, technical expertise, and cost-efficient execution.
         </p>
 
-        <div className="mt-12 grid md:grid-cols-2 gap-5">
+        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {cards.map((card) => (
             <div key={card.title} className="glass rounded-2xl p-6 flex flex-col">
               <div className="inline-flex items-center px-2.5 py-1 rounded-full border border-primary/30 bg-primary/10 text-[10px] uppercase tracking-wider text-primary mb-4">
@@ -345,7 +345,7 @@ function RfpServices() {
   ];
 
   return (
-    <section className="py-24 section-alt">
+    <section className="py-24">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           eyebrow="Services"
@@ -397,7 +397,7 @@ function WhyPIScaleX() {
     { icon: ShieldCheck, t: "Compliance-Focused Approach", d: "Processes designed around documentation quality, compliance requirements, and procurement best practices." },
   ];
   return (
-    <section className="py-24">
+    <section className="py-24 section-alt">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           eyebrow="Why PIScaleX"
@@ -423,7 +423,7 @@ function WhyPIScaleX() {
 /* ─────────────── NDA COMMITMENT ─────────────── */
 function NdaCommitment() {
   return (
-    <section className="py-24 section-alt">
+    <section className="py-24">
       <div className="max-w-5xl mx-auto px-6">
         <div className="glass rounded-3xl p-10 md:p-12 relative overflow-hidden">
           <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-primary/20 blur-3xl" />
