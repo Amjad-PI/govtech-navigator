@@ -76,7 +76,7 @@ function Nav() {
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
           <a href="/rfp-services" className="hover:text-foreground transition">
-            RFP Services
+            Services
           </a>
           <a href="#why" className="hover:text-foreground transition">
             Why Us
@@ -870,7 +870,7 @@ function Footer() {
                   <Mail className="h-4 w-4" /> Send
                 </button>
                 <a
-                  href="https://www.linkedin.com/company/pisolglobal"
+                  href="https://www.linkedin.com/company/piscalex"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center justify-center px-4 py-2.5 rounded-lg border border-border hover:border-primary/40 transition"

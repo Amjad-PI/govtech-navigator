@@ -29,7 +29,7 @@ function Nav() {
           <img src={logoIcon} alt="PIScaleX" className="h-10 w-50" />
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-          <Link to="/rfp-services" className="text-foreground font-medium">RFP Services</Link>
+          <Link to="/rfp-services" className="hover:text-foreground transition">Services</Link>
           <Link to="/" hash="why" className="hover:text-foreground transition">Why Us</Link>
           <Link to="/capability" className="text-foreground font-medium">Capability</Link>
           <Link to="/case-studies" className="hover:text-foreground transition">Case Studies</Link>
@@ -704,7 +704,7 @@ function Footer() {
                   <Mail className="h-4 w-4" /> Send
                 </button>
                 <a
-                  href="https://www.linkedin.com/company/pisolglobal"
+                  href="https://www.linkedin.com/company/piscalex"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center justify-center px-4 py-2.5 rounded-lg border border-border hover:border-primary/40 transition"
