@@ -501,6 +501,8 @@ function RfpServicesPage() {
       <Nav />
       <main>
         <Hero />
+        <ComplianceStandards />
+        <MarketPositioning />
         <RfpServices />
         <WhyPIScaleX />
         <NdaCommitment />
