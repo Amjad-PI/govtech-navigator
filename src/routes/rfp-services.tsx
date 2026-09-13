@@ -129,6 +129,171 @@ function Hero() {
   );
 }
 
+/* ─────────────── COMPLIANCE & STANDARDS ─────────────── */
+function ComplianceStandards() {
+  const items = [
+    {
+      title: "WCAG 2.2 AA",
+      desc: "Accessible digital experiences designed to support modern web accessibility requirements.",
+      tag: "Design Standard",
+      icon: FileCheck2,
+    },
+    {
+      title: "HIPAA Aware",
+      desc: "Delivery practices designed with healthcare data privacy and security considerations in mind.",
+      tag: "Aware",
+      icon: Shield,
+    },
+    {
+      title: "GDPR Compliant",
+      desc: "Privacy-aware development practices supporting data protection and responsible information handling.",
+      tag: "Aware",
+      icon: Lock,
+    },
+    {
+      title: "CMMC Level 1",
+      desc: "Security practices aligned with foundational CMMC requirements.",
+      tag: "In Progress",
+      icon: ShieldCheck,
+    },
+    {
+      title: "NIST 800-53",
+      desc: "Security controls and delivery practices mapped to the NIST 800-53 framework.",
+      tag: "Aligned",
+      icon: ScrollText,
+    },
+    {
+      title: "Section 508",
+      desc: "Accessible solutions designed to support U.S. federal accessibility requirements.",
+      tag: "Design Standard",
+      icon: CheckCircle2,
+    },
+  ];
+
+  return (
+    <section className="py-24">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-primary/90 mb-4">
+          <span className="h-1 w-6 bg-primary rounded-full" />
+          Compliance & Standards
+        </div>
+        <h2 className="font-display text-3xl md:text-4xl font-semibold text-gradient leading-tight">
+          Built for Secure, Accessible<br />Government Delivery
+        </h2>
+        <p className="mt-4 text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl">
+          Our solutions align with recognized security, privacy, and accessibility standards to help primes and public-sector organizations deliver with greater confidence.
+        </p>
+
+        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {items.map((item) => (
+            <div key={item.title} className="glass rounded-2xl p-6 flex flex-col">
+              <div className="flex items-start justify-between gap-4">
+                <div className="h-10 w-10 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center">
+                  <item.icon className="h-5 w-5 text-primary" />
+                </div>
+                <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-accent/10 text-accent text-[10px] uppercase tracking-wider font-medium">
+                  {item.tag}
+                </span>
+              </div>
+              <h3 className="mt-4 font-display font-semibold text-lg">{item.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed flex-1">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─────────────── MARKET POSITIONING ─────────────── */
+function MarketPositioning() {
+  const cards = [
+    {
+      badge: "NAICS 541511 · NIGP 920-40",
+      title: "Application Development",
+      desc: "Build and modernize citizen-facing and mission-critical applications, including portals, case management, permitting, and justice platforms.",
+      tags: ["State CIOs", "Courts & Justice", "Permit Offices"],
+      icon: Cpu,
+    },
+    {
+      badge: "NAICS 541512 · NIGP 920-64",
+      title: "Systems Integration",
+      desc: "Connect enterprise platforms, modernize legacy environments, and support ERP, middleware, and data integration initiatives.",
+      tags: ["ERP", "Middleware", "Data Migration"],
+      icon: Layers,
+    },
+    {
+      badge: "NAICS 518210 · NIGP 920-78",
+      title: "Cloud Migration Support",
+      desc: "Support cloud transformation through migration, re-platforming, cloud engineering, and DevSecOps delivery.",
+      tags: ["AWS / Azure", "GovCloud", "Managed Services"],
+      icon: Cloud,
+    },
+    {
+      badge: "NAICS 561320 · NIGP 961-24",
+      title: "IT Staff Augmentation",
+      desc: "Provide scalable technical resources that complement prime-led teams across development, QA, data, cloud, and application support.",
+      tags: ["Booz Allen", "SAIC", "Leidos", "Peraton"],
+      icon: Users,
+    },
+    {
+      badge: "NAICS 541513 · NIGP 920-66",
+      title: "Managed IT Operations",
+      desc: "Support day-to-day technology operations through help desk, application support, NOC services, monitoring, and SLA-focused delivery.",
+      tags: ["County IT", "School Districts", "Utility Districts"],
+      icon: Building2,
+    },
+    {
+      badge: "NAICS 611420 · NIGP 920-91",
+      title: "Government IT Training & Change Management",
+      desc: "Support technology adoption with user training, instructional content, knowledge transfer, and change management for modernization programs.",
+      tags: ["ERP Primes", "State HR Agencies"],
+      icon: GraduationCap,
+    },
+  ];
+
+  return (
+    <section className="py-24 section-alt">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-primary/90 mb-4">
+          <span className="h-1 w-6 bg-primary rounded-full" />
+          Market Positioning
+        </div>
+        <h2 className="font-display text-3xl md:text-4xl font-semibold text-gradient leading-tight">
+          Where Prime Contractors<br />Need Delivery Capacity.
+        </h2>
+        <p className="mt-4 text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl">
+          Explore six high-demand SLED technology service areas where PIScaleX can support prime contractors with scalable remote delivery, technical expertise, and cost-efficient execution.
+        </p>
+
+        <div className="mt-12 grid md:grid-cols-2 gap-5">
+          {cards.map((card) => (
+            <div key={card.title} className="glass rounded-2xl p-6 flex flex-col">
+              <div className="inline-flex items-center px-2.5 py-1 rounded-full border border-primary/30 bg-primary/10 text-[10px] uppercase tracking-wider text-primary mb-4">
+                {card.badge}
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="h-9 w-9 rounded-lg bg-accent/15 border border-accent/30 flex items-center justify-center">
+                  <card.icon className="h-4 w-4 text-accent" />
+                </div>
+                <h3 className="font-display font-semibold text-xl">{card.title}</h3>
+              </div>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed flex-1">{card.desc}</p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {card.tags.map((tag) => (
+                  <span key={tag} className="px-2.5 py-1 rounded-full border border-border bg-white/[0.03] text-[10px] text-muted-foreground">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─────────────────── RFP SERVICES ─────────────────── */
 function RfpServices() {
   const columns = [
