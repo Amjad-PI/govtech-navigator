@@ -13,6 +13,7 @@ import { Route as RfpServicesRouteImport } from './routes/rfp-services'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as CapabilityRouteImport } from './routes/capability'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CasestudiesTicketingVideoSurveillanceRouteImport } from './routes/casestudies/ticketing-video-surveillance'
 import { Route as CasestudiesEnterpriseITTicketingDonaAnaCountyRouteImport } from './routes/casestudies/enterprise-IT-ticketing-dona-ana-county'
 import { Route as CasestudiesDistrictwideDataKansasRouteImport } from './routes/casestudies/districtwide-data-kansas'
 import { Route as ApiDownloadFilenameRouteImport } from './routes/api/download.$filename'
@@ -37,6 +38,12 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CasestudiesTicketingVideoSurveillanceRoute =
+  CasestudiesTicketingVideoSurveillanceRouteImport.update({
+    id: '/casestudies/ticketing-video-surveillance',
+    path: '/casestudies/ticketing-video-surveillance',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CasestudiesEnterpriseITTicketingDonaAnaCountyRoute =
   CasestudiesEnterpriseITTicketingDonaAnaCountyRouteImport.update({
     id: '/casestudies/enterprise-IT-ticketing-dona-ana-county',
@@ -62,6 +69,7 @@ export interface FileRoutesByFullPath {
   '/rfp-services': typeof RfpServicesRoute
   '/casestudies/districtwide-data-kansas': typeof CasestudiesDistrictwideDataKansasRoute
   '/casestudies/enterprise-IT-ticketing-dona-ana-county': typeof CasestudiesEnterpriseITTicketingDonaAnaCountyRoute
+  '/casestudies/ticketing-video-surveillance': typeof CasestudiesTicketingVideoSurveillanceRoute
   '/api/download/$filename': typeof ApiDownloadFilenameRoute
 }
 export interface FileRoutesByTo {
@@ -71,6 +79,7 @@ export interface FileRoutesByTo {
   '/rfp-services': typeof RfpServicesRoute
   '/casestudies/districtwide-data-kansas': typeof CasestudiesDistrictwideDataKansasRoute
   '/casestudies/enterprise-IT-ticketing-dona-ana-county': typeof CasestudiesEnterpriseITTicketingDonaAnaCountyRoute
+  '/casestudies/ticketing-video-surveillance': typeof CasestudiesTicketingVideoSurveillanceRoute
   '/api/download/$filename': typeof ApiDownloadFilenameRoute
 }
 export interface FileRoutesById {
@@ -81,6 +90,7 @@ export interface FileRoutesById {
   '/rfp-services': typeof RfpServicesRoute
   '/casestudies/districtwide-data-kansas': typeof CasestudiesDistrictwideDataKansasRoute
   '/casestudies/enterprise-IT-ticketing-dona-ana-county': typeof CasestudiesEnterpriseITTicketingDonaAnaCountyRoute
+  '/casestudies/ticketing-video-surveillance': typeof CasestudiesTicketingVideoSurveillanceRoute
   '/api/download/$filename': typeof ApiDownloadFilenameRoute
 }
 export interface FileRouteTypes {
@@ -92,6 +102,7 @@ export interface FileRouteTypes {
     | '/rfp-services'
     | '/casestudies/districtwide-data-kansas'
     | '/casestudies/enterprise-IT-ticketing-dona-ana-county'
+    | '/casestudies/ticketing-video-surveillance'
     | '/api/download/$filename'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -101,6 +112,7 @@ export interface FileRouteTypes {
     | '/rfp-services'
     | '/casestudies/districtwide-data-kansas'
     | '/casestudies/enterprise-IT-ticketing-dona-ana-county'
+    | '/casestudies/ticketing-video-surveillance'
     | '/api/download/$filename'
   id:
     | '__root__'
@@ -110,6 +122,7 @@ export interface FileRouteTypes {
     | '/rfp-services'
     | '/casestudies/districtwide-data-kansas'
     | '/casestudies/enterprise-IT-ticketing-dona-ana-county'
+    | '/casestudies/ticketing-video-surveillance'
     | '/api/download/$filename'
   fileRoutesById: FileRoutesById
 }
@@ -120,6 +133,7 @@ export interface RootRouteChildren {
   RfpServicesRoute: typeof RfpServicesRoute
   CasestudiesDistrictwideDataKansasRoute: typeof CasestudiesDistrictwideDataKansasRoute
   CasestudiesEnterpriseITTicketingDonaAnaCountyRoute: typeof CasestudiesEnterpriseITTicketingDonaAnaCountyRoute
+  CasestudiesTicketingVideoSurveillanceRoute: typeof CasestudiesTicketingVideoSurveillanceRoute
   ApiDownloadFilenameRoute: typeof ApiDownloadFilenameRoute
 }
 
@@ -151,6 +165,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/casestudies/ticketing-video-surveillance': {
+      id: '/casestudies/ticketing-video-surveillance'
+      path: '/casestudies/ticketing-video-surveillance'
+      fullPath: '/casestudies/ticketing-video-surveillance'
+      preLoaderRoute: typeof CasestudiesTicketingVideoSurveillanceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/casestudies/enterprise-IT-ticketing-dona-ana-county': {
@@ -186,6 +207,8 @@ const rootRouteChildren: RootRouteChildren = {
     CasestudiesDistrictwideDataKansasRoute,
   CasestudiesEnterpriseITTicketingDonaAnaCountyRoute:
     CasestudiesEnterpriseITTicketingDonaAnaCountyRoute,
+  CasestudiesTicketingVideoSurveillanceRoute:
+    CasestudiesTicketingVideoSurveillanceRoute,
   ApiDownloadFilenameRoute: ApiDownloadFilenameRoute,
 }
 export const routeTree = rootRouteImport

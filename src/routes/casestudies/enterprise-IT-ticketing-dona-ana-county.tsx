@@ -332,7 +332,7 @@ function FinalCTA() {
           Ready to Win Your Next SLED Bid?
         </h2>
         <p className="mt-5 text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed">
-          PIScaleX delivers pre-bid intelligence, technical architecture, and submission engineering for U.S. state, local, and education procurement.
+          PIScaleX provides software consultancy, staff augmentation, and end-to-end technology delivery and support for U.S. SLED engagements.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <a href="https://calendly.com/amjad-pi-pisolglobal/ussled" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-accent-foreground font-medium hover:opacity-90 transition shadow-lg shadow-accent/20">

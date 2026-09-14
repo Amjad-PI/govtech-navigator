@@ -111,6 +111,18 @@ function CaseStudies() {
       ],
     },
     {
+      sector: "Private",
+      icon: Cloud,
+      link: "/casestudies/ticketing-video-surveillance",
+      title: "Ticketing & Customer Support Management System",
+      desc: "Centralizing Customer Support, Improving Agent Productivity, and Creating a Single Source of Truth",
+      outcomes: [
+        "100K+ custoemr conversations supported",
+        "Omnichannel unified ticket management",
+        "24/7 customer self-service through knowledge base",
+      ],
+    },
+    {
       sector: "K-12 Education",
       icon: GraduationCap,
       link: "/casestudies/districtwide-data-kansas",
@@ -123,18 +135,6 @@ function CaseStudies() {
       ],
     },
     {
-      sector: "Higher Education",
-      icon: GraduationCap,
-      link: "/casestudies/enterprise-IT-ticketing-dona-ana-county",
-      title: "Enterprise IT Ticketing, Asset Management and Cost Tracking System",
-      desc: "Cloud-native ITSM solution delivering native reporting, multi-campus asset visibility, and federal-fund cost allocation across 40 campuses.",
-      outcomes: [
-        "40 campuses serving 22,500 students",
-        "Encryption in transit (TLS 1.2+) and at rest (AES-256)",
-        "Reporting-first positioning",
-      ],
-    },
-    {
       sector: "Municipal Government",
       icon: Phone,
       link: "#",
@@ -144,6 +144,18 @@ function CaseStudies() {
         "Average handling time reduced to 2.4 minutes",
         "99.7% SLA compliance achieved",
         "Full bilingual service coverage",
+      ],
+    },
+    {
+      sector: "Higher Education",
+      icon: GraduationCap,
+      link: "/casestudies/enterprise-IT-ticketing-dona-ana-county",
+      title: "Enterprise IT Ticketing, Asset Management and Cost Tracking System",
+      desc: "Cloud-native ITSM solution delivering native reporting, multi-campus asset visibility, and federal-fund cost allocation across 40 campuses.",
+      outcomes: [
+        "40 campuses serving 22,500 students",
+        "Encryption in transit (TLS 1.2+) and at rest (AES-256)",
+        "Reporting-first positioning",
       ],
     },
     {

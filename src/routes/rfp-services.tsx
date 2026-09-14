@@ -13,9 +13,9 @@ export const Route = createFileRoute("/rfp-services")({
   head: () => ({
     meta: [
       { title: "RFP Services — PIScaleX | U.S. SLED Government Procurement Support" },
-      { name: "description", content: "End-to-end RFP lifecycle support for U.S. SLED government contracting. Opportunity evaluation, proposal development, compliance support, and post-award execution." },
+      { name: "description", content: "End-to-end support for U.S. SLED government contracting. Opportunity evaluation, proposal development, compliance support, and post-award execution." },
       { property: "og:title", content: "RFP Services — PIScaleX | U.S. SLED Government Procurement Support" },
-      { property: "og:description", content: "End-to-end RFP lifecycle support for U.S. SLED government contracting." },
+      { property: "og:description", content: "End-to-end support for U.S. SLED government contracting." },
       { property: "og:url", content: "/rfp-services" },
     ],
     links: [{ rel: "canonical", href: "/rfp-services" }],
@@ -86,13 +86,13 @@ function Hero() {
       <div className="max-w-7xl mx-auto px-6 w-full">
         <div className="max-w-3xl animate-fade-up">
           <div className="inline-flex items-center gap-2 glass px-3 py-1.5 rounded-full text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-6">
-            <ShieldCheck className="h-3.5 w-3.5 text-primary" /> End-to-End RFP Lifecycle
+            <ShieldCheck className="h-3.5 w-3.5 text-primary" /> End-to-End SERVICES · U.S. SLED
           </div>
           <h1 className="font-display text-4xl md:text-5xl lg:text-[3.6rem] font-semibold leading-[1.05] text-gradient">
             From opportunity evaluation to post-award execution
           </h1>
           <p className="mt-6 text-muted-foreground text-lg md:text-xl leading-relaxed max-w-2xl">
-            PIScaleX provides structured support across every stage of the procurement lifecycle.
+            PIScaleX provides structured support across every stage of the procurement and delivery lifecycle.
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed max-w-2xl">
             One trusted partner for IT consulting, software development, skilled staff augmentation, and reliable technology delivery.
@@ -457,10 +457,10 @@ function FinalCTA() {
           <Handshake className="h-3.5 w-3.5 text-primary" /> Start the Conversation
         </div>
         <h2 className="font-display text-3xl md:text-5xl font-semibold text-gradient leading-tight">
-          Need Support Across the Procurement Lifecycle?
+          Need Support Across the Delivery Lifecycle?
         </h2>
         <p className="mt-5 text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed">
-          Whether you need opportunity intelligence, proposal development, compliance support, teaming assistance, or post-award execution support, PIScaleX can help.
+          Scale Your SLED Delivery with Confidence. PIScaleX provides software consulting, staff augmentation, and end-to-end technology delivery and support for government technology partners and primes.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <a href="https://calendly.com/amjad-pi-pisolglobal/ussled" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent text-accent-foreground font-medium hover:opacity-90 transition shadow-lg shadow-accent/20">

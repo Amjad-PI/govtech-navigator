@@ -571,8 +571,7 @@ function FinalCTA() {
           Ready to Strengthen Your Public Sector Growth Strategy?
         </h2>
         <p className="mt-5 text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed">
-          Whether you are pursuing your first government opportunity or expanding an established public sector practice,
-          PIScaleX provides the procurement intelligence, proposal support, and strategic guidance needed to accelerate success.
+          Scale Your SLED Delivery with Confidence. PIScaleX provides software consulting, staff augmentation, and end-to-end technology delivery and support for government technology partners and primes.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <a href="https://calendly.com/amjad-pi-pisolglobal/ussled" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent text-accent-foreground font-medium hover:opacity-90 transition shadow-lg shadow-accent/20">
