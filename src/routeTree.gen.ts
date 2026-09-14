@@ -9,13 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TicketingRouteImport } from './routes/ticketing'
 import { Route as RfpServicesRouteImport } from './routes/rfp-services'
 import { Route as DistrictwideDataRouteImport } from './routes/districtwide-data'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as CapabilityRouteImport } from './routes/capability'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as CaseStudiesTicketingRouteImport } from './routes/case-studies.ticketing'
 
+const TicketingRoute = TicketingRouteImport.update({
+  id: '/ticketing',
+  path: '/ticketing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RfpServicesRoute = RfpServicesRouteImport.update({
   id: '/rfp-services',
   path: '/rfp-services',
@@ -41,36 +46,31 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CaseStudiesTicketingRoute = CaseStudiesTicketingRouteImport.update({
-  id: '/ticketing',
-  path: '/ticketing',
-  getParentRoute: () => CaseStudiesRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/capability': typeof CapabilityRoute
-  '/case-studies': typeof CaseStudiesRouteWithChildren
+  '/case-studies': typeof CaseStudiesRoute
   '/districtwide-data': typeof DistrictwideDataRoute
   '/rfp-services': typeof RfpServicesRoute
-  '/case-studies/ticketing': typeof CaseStudiesTicketingRoute
+  '/ticketing': typeof TicketingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/capability': typeof CapabilityRoute
-  '/case-studies': typeof CaseStudiesRouteWithChildren
+  '/case-studies': typeof CaseStudiesRoute
   '/districtwide-data': typeof DistrictwideDataRoute
   '/rfp-services': typeof RfpServicesRoute
-  '/case-studies/ticketing': typeof CaseStudiesTicketingRoute
+  '/ticketing': typeof TicketingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/capability': typeof CapabilityRoute
-  '/case-studies': typeof CaseStudiesRouteWithChildren
+  '/case-studies': typeof CaseStudiesRoute
   '/districtwide-data': typeof DistrictwideDataRoute
   '/rfp-services': typeof RfpServicesRoute
-  '/case-studies/ticketing': typeof CaseStudiesTicketingRoute
+  '/ticketing': typeof TicketingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -80,7 +80,7 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/districtwide-data'
     | '/rfp-services'
-    | '/case-studies/ticketing'
+    | '/ticketing'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -88,7 +88,7 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/districtwide-data'
     | '/rfp-services'
-    | '/case-studies/ticketing'
+    | '/ticketing'
   id:
     | '__root__'
     | '/'
@@ -96,19 +96,27 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/districtwide-data'
     | '/rfp-services'
-    | '/case-studies/ticketing'
+    | '/ticketing'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CapabilityRoute: typeof CapabilityRoute
-  CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
+  CaseStudiesRoute: typeof CaseStudiesRoute
   DistrictwideDataRoute: typeof DistrictwideDataRoute
   RfpServicesRoute: typeof RfpServicesRoute
+  TicketingRoute: typeof TicketingRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/ticketing': {
+      id: '/ticketing'
+      path: '/ticketing'
+      fullPath: '/ticketing'
+      preLoaderRoute: typeof TicketingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/rfp-services': {
       id: '/rfp-services'
       path: '/rfp-services'
@@ -144,34 +152,16 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/case-studies/ticketing': {
-      id: '/case-studies/ticketing'
-      path: '/ticketing'
-      fullPath: '/case-studies/ticketing'
-      preLoaderRoute: typeof CaseStudiesTicketingRouteImport
-      parentRoute: typeof CaseStudiesRoute
-    }
   }
 }
-
-interface CaseStudiesRouteChildren {
-  CaseStudiesTicketingRoute: typeof CaseStudiesTicketingRoute
-}
-
-const CaseStudiesRouteChildren: CaseStudiesRouteChildren = {
-  CaseStudiesTicketingRoute: CaseStudiesTicketingRoute,
-}
-
-const CaseStudiesRouteWithChildren = CaseStudiesRoute._addFileChildren(
-  CaseStudiesRouteChildren,
-)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CapabilityRoute: CapabilityRoute,
-  CaseStudiesRoute: CaseStudiesRouteWithChildren,
+  CaseStudiesRoute: CaseStudiesRoute,
   DistrictwideDataRoute: DistrictwideDataRoute,
   RfpServicesRoute: RfpServicesRoute,
+  TicketingRoute: TicketingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
