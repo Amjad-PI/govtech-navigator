@@ -20,7 +20,7 @@ import {
   Users,
 } from "lucide-react";
 
-export const Route = createFileRoute("/case-studies/ticketing")({
+export const Route = createFileRoute("/ticketing")({
   component: TicketingCaseStudyPage,
   head: () => ({
     meta: [
@@ -28,9 +28,9 @@ export const Route = createFileRoute("/case-studies/ticketing")({
       { name: "description", content: "A scalable ITSM and omnichannel customer support platform that centralizes customer conversations, streamlines support operations, and provides real-time operational visibility." },
       { property: "og:title", content: "Ticketing & Customer Support Management System — PIScaleX" },
       { property: "og:description", content: "Centralizing customer support, improving agent productivity, and creating a single source of truth for a growing technology organization." },
-      { property: "og:url", content: "/case-studies/ticketing" },
+      { property: "og:url", content: "/ticketing" },
     ],
-    links: [{ rel: "canonical", href: "/case-studies/ticketing" }],
+    links: [{ rel: "canonical", href: "/ticketing" }],
   }),
 });
 

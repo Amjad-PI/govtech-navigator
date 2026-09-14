@@ -117,7 +117,7 @@ function CaseStudies() {
         "20+ agents enabled on one platform",
         "Unified email, web, and future channels",
       ],
-      to: "/case-studies/ticketing",
+      to: "/ticketing",
     },
     {
       sector: "State Agency",
