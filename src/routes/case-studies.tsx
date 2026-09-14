@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight, Building2, GraduationCap, Cloud, Database,
   Phone, CheckCircle2, Calendar, Handshake, Mail, Landmark,
+  Headset,
 } from "lucide-react";
 
 export const Route = createFileRoute("/case-studies")({
@@ -107,6 +108,18 @@ function Hero() {
 function CaseStudies() {
   const studies = [
     {
+      sector: "Customer Support",
+      icon: Headset,
+      title: "Ticketing & Customer Support Management System",
+      desc: "A scalable ITSM and omnichannel customer support platform that centralizes customer conversations, streamlines support operations, and improves real-time operational visibility.",
+      outcomes: [
+        "100K+ conversations supported",
+        "20+ agents enabled on one platform",
+        "Unified email, web, and future channels",
+      ],
+      to: "/ticketing",
+    },
+    {
       sector: "State Agency",
       icon: Building2,
       title: "Statewide Citizen Services Portal Modernization",
@@ -184,28 +197,37 @@ function CaseStudies() {
         />
 
         <div className="mt-12 grid md:grid-cols-2 gap-5">
-          {studies.map((s) => (
-            <div key={s.title} className="glass rounded-2xl p-7 flex flex-col hover:-translate-y-1 hover:bg-white/[0.05] transition">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="h-10 w-10 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center">
-                  <s.icon className="h-5 w-5 text-primary" />
-                </div>
-                <div>
-                  <div className="text-[11px] uppercase tracking-wider text-muted-foreground">{s.sector}</div>
-                  <h3 className="font-display font-semibold text-lg leading-tight">{s.title}</h3>
-                </div>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed flex-1">{s.desc}</p>
-              <div className="mt-5 space-y-2">
-                {s.outcomes.map((o) => (
-                  <div key={o} className="flex items-start gap-2.5 text-sm text-foreground/90">
-                    <CheckCircle2 className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
-                    <span>{o}</span>
+          {studies.map((s) => {
+            const card = (
+              <div className="glass rounded-2xl p-7 flex flex-col h-full hover:-translate-y-1 hover:bg-white/[0.05] transition">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="h-10 w-10 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center">
+                    <s.icon className="h-5 w-5 text-primary" />
                   </div>
-                ))}
+                  <div>
+                    <div className="text-[11px] uppercase tracking-wider text-muted-foreground">{s.sector}</div>
+                    <h3 className="font-display font-semibold text-lg leading-tight">{s.title}</h3>
+                  </div>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed flex-1">{s.desc}</p>
+                <div className="mt-5 space-y-2">
+                  {s.outcomes.map((o) => (
+                    <div key={o} className="flex items-start gap-2.5 text-sm text-foreground/90">
+                      <CheckCircle2 className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
+                      <span>{o}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+            return s.to ? (
+              <Link key={s.title} to={s.to} className="block group">
+                {card}
+              </Link>
+            ) : (
+              <div key={s.title}>{card}</div>
+            );
+          })}
         </div>
       </div>
     </section>
