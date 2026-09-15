@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState, useEffect, useRef } from "react";
 import logoIcon from "@/assets/pi-logo-Hd-crop.jpg";
 import {
   ArrowRight, Building2, GraduationCap, Cloud, Database,
-  Phone, CheckCircle2, Calendar, Handshake, Mail, Landmark, Linkedin, Clock, ChevronRight,
+  Phone, CheckCircle2, Calendar, Handshake, Mail, Landmark, Linkedin, Clock, ChevronRight, Menu, X,
 } from "lucide-react";
 
 export const Route = createFileRoute("/case-studies")({
@@ -19,25 +20,79 @@ export const Route = createFileRoute("/case-studies")({
   }),
 });
 
+const navItems = [
+  { label: "Services", href: "/rfp-services" },
+  { label: "Why Us", href: "/#why" },
+  { label: "Capability", href: "/capability" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Partner", href: "/#partner" },
+];
+
 function Nav() {
+  const [open, setOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const handleClick = (e: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [open]);
+
   return (
-    <header className="fixed top-0 inset-x-0 z-50 border-b border-border/60 backdrop-blur-xl bg-background/70">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-2.5">
-          <img src={logoIcon} alt="PIScaleX" className="h-10 w-50" />
+    <header ref={headerRef} className="fixed top-0 inset-x-0 z-50 border-b border-border/60 backdrop-blur-xl bg-background/70">
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+        <a href="/" className="flex items-center gap-2.5 flex-shrink-0">
+          <img src={logoIcon} alt="PIScaleX" className="h-10 w-auto" />
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-          <Link to="/rfp-services" className="hover:text-foreground transition">Services</Link>
-          <Link to="/" hash="why" className="hover:text-foreground transition">Why Us</Link>
-          <Link to="/capability" className="hover:text-foreground transition">Capability</Link>
-          <Link to="/case-studies" className="text-foreground font-medium">Case Studies</Link>
-          <Link to="/" hash="partner" className="hover:text-foreground transition">Partner</Link>
+          {navItems.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className="hover:text-foreground transition"
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
-        <span>📞 +1 (703) 666-7959</span>
-        <Link to="/" hash="partner" className="inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-lg bg-accent text-accent-foreground hover:opacity-90 transition">
-          Partner With Us <ArrowRight className="h-3.5 w-3.5" />
-        </Link>
+        <div className="flex items-center gap-2 flex-shrink-0">
+          <span className="hidden md:inline">📞 +1 (703) 666-7959</span>
+          <a href="/#partner" className="hidden md:inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-lg bg-accent text-accent-foreground hover:opacity-90 transition">
+            Partner With Us <ArrowRight className="h-3.5 w-3.5" />
+          </a>
+          <button
+            type="button"
+            aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border border-border/60 bg-background/70 text-foreground hover:bg-white/[0.05] transition"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
+
+      {open && (
+        <nav className="md:hidden absolute top-full inset-x-0 border-b border-border/60 bg-background backdrop-blur-xl p-4 shadow-2xl">
+          <div className="max-w-7xl mx-auto flex flex-col gap-1">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="px-4 py-3 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-white/[0.03] transition"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </nav>
+      )}
     </header>
   );
 }
