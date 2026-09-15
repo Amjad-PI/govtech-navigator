@@ -33,11 +33,36 @@ export const Route = createFileRoute("/")({
   }),
 });
 
+const navItems = [
+  { label: "Services", href: "#services" },
+  { label: "SLED Portfolio", href: "#projects" },
+  { label: "Why PI", href: "#why" },
+  { label: "AI & Data", href: "#ai" },
+  { label: "Capability", href: "/capability" },
+  { label: "RFP Services", href: "/rfp-services" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Partner", href: "#partner" },
+];
+
 function Nav() {
+  const [open, setOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const handleClick = (e: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [open]);
+
   return (
-    <header className="fixed top-0 inset-x-0 z-50 border-b border-border/60 backdrop-blur-xl bg-background/70">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2.5">
+    <header ref={headerRef} className="fixed top-0 inset-x-0 z-50 border-b border-border/60 backdrop-blur-xl bg-background/70">
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+        <a href="#top" className="flex items-center gap-2.5 flex-shrink-0">
           <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
             <span className="font-display font-bold text-primary-foreground text-sm">PI</span>
           </div>
@@ -47,19 +72,44 @@ function Nav() {
           </div>
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-          <a href="#services" className="hover:text-foreground transition">Services</a>
-          <a href="#projects" className="hover:text-foreground transition">SLED Portfolio</a>
-          <a href="#why" className="hover:text-foreground transition">Why PI</a>
-          <a href="#ai" className="hover:text-foreground transition">AI & Data</a>
-          <a href="/capability" className="hover:text-foreground transition">Capability</a>
-          <a href="/rfp-services" className="hover:text-foreground transition">RFP Services</a>
-          <a href="/case-studies" className="hover:text-foreground transition">Case Studies</a>
-          <a href="#partner" className="hover:text-foreground transition">Partner</a>
+          {navItems.map((item) => (
+            <a key={item.label} href={item.href} className="hover:text-foreground transition">
+              {item.label}
+            </a>
+          ))}
         </nav>
-        <a href="#partner" className="inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-lg bg-accent text-accent-foreground hover:opacity-90 transition">
-          Partner With Us <ArrowRight className="h-3.5 w-3.5" />
-        </a>
+        <div className="flex items-center gap-2 flex-shrink-0">
+          <a href="#partner" className="inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-lg bg-accent text-accent-foreground hover:opacity-90 transition">
+            Partner With Us <ArrowRight className="h-3.5 w-3.5" />
+          </a>
+          <button
+            type="button"
+            aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border border-border/60 bg-background/70 text-foreground hover:bg-white/[0.05] transition"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
+
+      {open && (
+        <nav className="md:hidden absolute top-full inset-x-0 border-b border-border/60 bg-background/95 backdrop-blur-xl p-4 shadow-2xl">
+          <div className="max-w-7xl mx-auto flex flex-col gap-1">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="px-4 py-3 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-white/[0.03] transition"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </nav>
+      )}
     </header>
   );
 }
