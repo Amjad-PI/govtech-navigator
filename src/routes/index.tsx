@@ -95,7 +95,7 @@ function Nav() {
       </div>
 
       {open && (
-        <nav className="md:hidden absolute top-full inset-x-0 border-b border-border/60 bg-background/95 backdrop-blur-xl p-4 shadow-2xl">
+        <nav className="md:hidden absolute top-full inset-x-0 border-b border-border/60 bg-background backdrop-blur-xl p-4 shadow-2xl">
           <div className="max-w-7xl mx-auto flex flex-col gap-1">
             {navItems.map((item) => (
               <a
